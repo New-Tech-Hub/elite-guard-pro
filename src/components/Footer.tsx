@@ -75,7 +75,7 @@ const Footer = () => {
                 <Mail className="h-5 w-5 text-accent mt-0.5" />
                 <div>
                   <a href="mailto:info@eliteshield.ng" className="text-sm text-primary-foreground/80 hover:text-accent">
-                    info@eliteshield.ng
+                    info@1145alliedprotections.ng
                   </a>
                 </div>
               </li>
