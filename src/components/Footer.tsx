@@ -95,7 +95,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-primary-glow">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-foreground/60">
-              © 2025 EliteShield VIP Escort Services. All rights reserved.
+              © 2025 1145 Allied Protections Ltd. All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link to="#" className="text-sm text-primary-foreground/60 hover:text-accent transition-colors">
