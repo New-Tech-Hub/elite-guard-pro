@@ -10,12 +10,10 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="p-2 bg-accent rounded-lg">
-                <Shield className="h-6 w-6 text-primary" />
-              </div>
+              <img src={logo} alt="1145 Allied Protections" className="h-12 w-12 rounded-lg object-cover" />
               <div className="flex flex-col">
-                <span className="text-lg font-heading font-bold">EliteShield</span>
-                <span className="text-xs text-accent">VIP SECURITY</span>
+                <span className="text-lg font-heading font-bold">1145 Allied</span>
+                <span className="text-xs text-accent">PROTECTIONS LTD</span>
               </div>
             </div>
             <p className="text-sm text-primary-foreground/80 mb-4">
