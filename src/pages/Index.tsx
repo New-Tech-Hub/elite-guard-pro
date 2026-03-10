@@ -169,7 +169,7 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-heading font-bold text-primary mb-6">
-                Why Choose EliteShield?
+                Why Choose 1145 Allied Protections?
               </h2>
               <div className="space-y-4">
                 {[
