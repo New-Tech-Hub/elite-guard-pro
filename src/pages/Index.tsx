@@ -39,7 +39,7 @@ const Index = () => {
       name: 'Chief Adebayo M.',
       role: 'Business Executive',
       rating: 5,
-      text: 'EliteShield provided exceptional security during my recent trip to Lagos. Professional, discreet, and highly reliable.',
+      text: '1145 Allied Protections provided exceptional security during my recent trip to Lagos. Professional, discreet, and highly reliable.',
     },
     {
       name: 'Ambassador Williams',
@@ -169,7 +169,7 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-heading font-bold text-primary mb-6">
-                Why Choose EliteShield?
+                Why Choose 1145 Allied Protections?
               </h2>
               <div className="space-y-4">
                 {[
@@ -204,6 +204,7 @@ const Index = () => {
                 <p className="text-primary font-semibold text-lg">
                   "Trusted by Nigeria's top executives and international dignitaries"
                 </p>
+                <p className="text-primary/60 text-xs mt-1">RC: 9231838</p>
               </div>
             </div>
           </div>
@@ -218,7 +219,7 @@ const Index = () => {
               Client Testimonials
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Hear from our satisfied clients about their experience with EliteShield
+              Hear from our satisfied clients about their experience with 1145 Allied Protections
             </p>
           </div>
 

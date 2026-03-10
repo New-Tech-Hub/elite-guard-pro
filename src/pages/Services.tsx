@@ -165,7 +165,7 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-heading font-bold text-primary mb-6">
-              Why Choose EliteShield Services?
+              Why Choose 1145 Allied Protections?
             </h2>
             <div className="grid md:grid-cols-3 gap-8 mt-12">
               <div>

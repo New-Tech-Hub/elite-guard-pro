@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Shield, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import logo from '@/assets/logo.jpeg';
 
 const Footer = () => {
   return (
@@ -9,12 +10,10 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="p-2 bg-accent rounded-lg">
-                <Shield className="h-6 w-6 text-primary" />
-              </div>
+              <img src={logo} alt="1145 Allied Protections" className="h-12 w-12 rounded-lg object-cover" />
               <div className="flex flex-col">
-                <span className="text-lg font-heading font-bold">EliteShield</span>
-                <span className="text-xs text-accent">VIP SECURITY</span>
+                <span className="text-lg font-heading font-bold">1145 Allied</span>
+                <span className="text-xs text-accent">PROTECTIONS LTD</span>
               </div>
             </div>
             <p className="text-sm text-primary-foreground/80 mb-4">
@@ -75,8 +74,8 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <Mail className="h-5 w-5 text-accent mt-0.5" />
                 <div>
-                  <a href="mailto:info@eliteshield.ng" className="text-sm text-primary-foreground/80 hover:text-accent">
-                    info@eliteshield.ng
+                  <a href="mailto:info@1145alliedprotections.ng" className="text-sm text-primary-foreground/80 hover:text-accent">
+                    info@1145alliedprotections.ng
                   </a>
                 </div>
               </li>
@@ -96,7 +95,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-primary-glow">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-primary-foreground/60">
-              © 2025 EliteShield VIP Escort Services. All rights reserved.
+              © 2025 1145 Allied Protections Ltd. All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link to="#" className="text-sm text-primary-foreground/60 hover:text-accent transition-colors">

@@ -23,7 +23,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['info@eliteshield.ng', 'support@eliteshield.ng'],
+      details: ['info@1145alliedprotections.ng', 'support@1145alliedprotections.ng'],
     },
     {
       icon: MapPin,
