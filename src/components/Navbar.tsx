@@ -25,12 +25,10 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="p-2 bg-gradient-to-br from-primary to-primary-glow rounded-lg group-hover:shadow-gold transition-all">
-              <Shield className="h-7 w-7 text-primary-foreground" />
-            </div>
+            <img src={logo} alt="1145 Allied Protections" className="h-14 w-14 rounded-lg object-cover" />
             <div className="flex flex-col">
-              <span className="text-xl font-heading font-bold text-primary">EliteShield</span>
-              <span className="text-xs text-accent font-medium">VIP SECURITY</span>
+              <span className="text-lg font-heading font-bold text-primary leading-tight">1145 Allied</span>
+              <span className="text-xs text-accent font-medium">PROTECTIONS LTD</span>
             </div>
           </Link>
 

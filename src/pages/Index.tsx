@@ -204,6 +204,7 @@ const Index = () => {
                 <p className="text-primary font-semibold text-lg">
                   "Trusted by Nigeria's top executives and international dignitaries"
                 </p>
+                <p className="text-primary/60 text-xs mt-1">RC: 9231838</p>
               </div>
             </div>
           </div>

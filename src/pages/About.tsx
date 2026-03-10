@@ -46,7 +46,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
-              About <span className="text-accent">EliteShield</span>
+              About <span className="text-accent">1145 Allied Protections</span>
             </h1>
             <p className="text-xl text-primary-foreground/90 leading-relaxed">
               Nigeria's premier VIP escort and security services provider. We combine military-grade security protocols with luxury service delivery to ensure your safety and peace of mind.
