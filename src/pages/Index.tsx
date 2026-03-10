@@ -218,7 +218,7 @@ const Index = () => {
               Client Testimonials
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Hear from our satisfied clients about their experience with EliteShield
+              Hear from our satisfied clients about their experience with 1145 Allied Protections
             </p>
           </div>
 
