@@ -39,7 +39,7 @@ const Index = () => {
       name: 'Chief Adebayo M.',
       role: 'Business Executive',
       rating: 5,
-      text: 'EliteShield provided exceptional security during my recent trip to Lagos. Professional, discreet, and highly reliable.',
+      text: '1145 Allied Protections provided exceptional security during my recent trip to Lagos. Professional, discreet, and highly reliable.',
     },
     {
       name: 'Ambassador Williams',
