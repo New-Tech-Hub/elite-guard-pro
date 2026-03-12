@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import HeroSlider from '@/components/HeroSlider';
 import { Shield, Plane, MapPin, Car, Users, Star, CheckCircle, Clock, Award } from 'lucide-react';
 import heroImage from '@/assets/hero-security.jpg';
 
@@ -67,57 +68,7 @@ const Index = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-20 min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 z-0">
-          <img
-            src={heroImage}
-            alt="VIP Security Escort"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />
-        </div>
-        
-        <div className="container mx-auto px-4 z-10 relative">
-          <div className="max-w-3xl">
-            <div className="inline-block mb-4 px-4 py-2 bg-accent/10 backdrop-blur-sm border border-accent/20 rounded-full">
-              <span className="text-accent font-semibold text-sm">Nigeria's Premier Security Service</span>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-heading font-bold text-primary-foreground mb-6 leading-tight">
-              Secure VIP Escort Services <span className="text-accent">Across Nigeria</span>
-            </h1>
-            <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl">
-              Professional armed escorts, airport pickups, tour guide protection, and convoy services for high-profile individuals and executives.
-            </p>
-            <div className="flex flex-col md:flex-row gap-4 items-stretch">
-              <Link to="/booking" className="flex-1 md:flex-initial">
-                <Button 
-                  size="lg" 
-                  className="bg-[#d4a017] hover:bg-[#b88a12] text-[#0b1f3a] font-semibold px-8 h-14 text-base md:text-lg rounded-lg shadow-lg shadow-[#d4a017]/30 hover:shadow-xl hover:shadow-[#d4a017]/40 transition-all duration-300 hover:-translate-y-0.5 w-full md:w-auto"
-                >
-                  Book Escort Now
-                </Button>
-              </Link>
-              <Link to="/contact" className="flex-1 md:flex-initial">
-                <Button 
-                  size="lg" 
-                  className="bg-[#0b1f3a] hover:bg-[#162d4d] text-white font-semibold px-8 h-14 text-base md:text-lg rounded-lg shadow-lg shadow-[#0b1f3a]/30 hover:shadow-xl hover:shadow-[#0b1f3a]/40 transition-all duration-300 hover:-translate-y-0.5 w-full md:w-auto"
-                >
-                  Request Security Consultation
-                </Button>
-              </Link>
-              <a href="tel:+2348012345678" className="flex-1 md:flex-initial">
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="border-2 border-[#0b1f3a] text-[#0b1f3a] hover:bg-[#0b1f3a] hover:text-white h-14 px-8 text-base md:text-lg rounded-lg transition-all duration-300 hover:-translate-y-0.5 w-full md:w-auto backdrop-blur-sm"
-                >
-                  Call for Immediate Protection
-                </Button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* Stats Section */}
       <section className="py-12 bg-muted border-y border-border">
