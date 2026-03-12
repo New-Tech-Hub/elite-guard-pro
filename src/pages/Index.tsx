@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import HeroSlider from '@/components/HeroSlider';
 import { Shield, Plane, MapPin, Car, Users, Star, CheckCircle, Clock, Award } from 'lucide-react';
 import heroImage from '@/assets/hero-security.jpg';
 
