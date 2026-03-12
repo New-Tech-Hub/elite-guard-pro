@@ -88,28 +88,28 @@ const Index = () => {
             <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl">
               Professional armed escorts, airport pickups, tour guide protection, and convoy services for high-profile individuals and executives.
             </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              <Link to="/booking">
+            <div className="flex flex-col md:flex-row gap-4 items-stretch">
+              <Link to="/booking" className="flex-1 md:flex-initial">
                 <Button 
                   size="lg" 
-                  className="bg-[#d4a017] hover:bg-[#b88a12] text-[#0b1f3a] font-semibold px-8 h-14 text-base sm:text-lg rounded-lg shadow-lg shadow-[#d4a017]/30 hover:shadow-xl hover:shadow-[#d4a017]/40 transition-all duration-300 hover:-translate-y-0.5 w-full sm:w-auto"
+                  className="bg-[#d4a017] hover:bg-[#b88a12] text-[#0b1f3a] font-semibold px-8 h-14 text-base md:text-lg rounded-lg shadow-lg shadow-[#d4a017]/30 hover:shadow-xl hover:shadow-[#d4a017]/40 transition-all duration-300 hover:-translate-y-0.5 w-full md:w-auto"
                 >
                   Book Escort Now
                 </Button>
               </Link>
-              <Link to="/contact">
+              <Link to="/contact" className="flex-1 md:flex-initial">
                 <Button 
                   size="lg" 
-                  className="bg-[#0b1f3a] hover:bg-[#162d4d] text-white font-semibold px-8 h-14 text-base sm:text-lg rounded-lg shadow-lg shadow-[#0b1f3a]/30 hover:shadow-xl hover:shadow-[#0b1f3a]/40 transition-all duration-300 hover:-translate-y-0.5 w-full sm:w-auto"
+                  className="bg-[#0b1f3a] hover:bg-[#162d4d] text-white font-semibold px-8 h-14 text-base md:text-lg rounded-lg shadow-lg shadow-[#0b1f3a]/30 hover:shadow-xl hover:shadow-[#0b1f3a]/40 transition-all duration-300 hover:-translate-y-0.5 w-full md:w-auto"
                 >
                   Request Security Consultation
                 </Button>
               </Link>
-              <a href="tel:+2348012345678">
+              <a href="tel:+2348012345678" className="flex-1 md:flex-initial">
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="border-2 border-[#0b1f3a] text-[#0b1f3a] hover:bg-[#0b1f3a] hover:text-white h-14 px-8 text-base sm:text-lg rounded-lg transition-all duration-300 hover:-translate-y-0.5 w-full sm:w-auto backdrop-blur-sm"
+                  className="border-2 border-[#0b1f3a] text-[#0b1f3a] hover:bg-[#0b1f3a] hover:text-white h-14 px-8 text-base md:text-lg rounded-lg transition-all duration-300 hover:-translate-y-0.5 w-full md:w-auto backdrop-blur-sm"
                 >
                   Call for Immediate Protection
                 </Button>
