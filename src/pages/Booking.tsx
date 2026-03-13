@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -9,17 +10,14 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
-import { Shield, Calculator } from 'lucide-react';
+import { Shield, Calculator, ArrowRight } from 'lucide-react';
 
 const Booking = () => {
+  const scrollRef = useScrollAnimation();
   const [escortType, setEscortType] = useState('armed');
   const [officers, setOfficers] = useState(2);
   const [duration, setDuration] = useState(1);
-  const [addOns, setAddOns] = useState({
-    tourGuide: false,
-    suvRental: false,
-    convoyVehicles: 0,
-  });
+  const [addOns, setAddOns] = useState({ tourGuide: false, suvRental: false, convoyVehicles: 0 });
 
   const calculatePrice = () => {
     const basePrice = escortType === 'armed' ? 150000 : 100000;
@@ -28,7 +26,6 @@ const Booking = () => {
     const tourGuidePrice = addOns.tourGuide ? 30000 : 0;
     const suvPrice = addOns.suvRental ? 50000 : 0;
     const convoyPrice = addOns.convoyVehicles * 75000;
-
     const total = (basePrice + officerPrice + tourGuidePrice + suvPrice) * durationMultiplier + convoyPrice;
     return total.toLocaleString('en-NG');
   };
@@ -39,15 +36,17 @@ const Booking = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" ref={scrollRef}>
       <Navbar />
 
-      <section className="pt-32 pb-20">
+      <section className="pt-32 pb-24">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 mb-4">
-                <Shield className="h-8 w-8 text-accent" />
+            <div className="text-center mb-14 animate-on-scroll">
+              <div className="inline-flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center">
+                  <Shield className="h-6 w-6 text-accent" />
+                </div>
                 <h1 className="text-4xl md:text-5xl font-heading font-bold text-primary">
                   Book Your Security Escort
                 </h1>
@@ -59,67 +58,62 @@ const Booking = () => {
 
             <div className="grid lg:grid-cols-3 gap-8">
               {/* Booking Form */}
-              <div className="lg:col-span-2">
-                <Card className="border-2">
+              <div className="lg:col-span-2 animate-on-scroll">
+                <Card className="border border-border shadow-luxury">
                   <CardHeader>
                     <CardTitle className="text-2xl font-heading">Service Details</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <form onSubmit={handleSubmit} className="space-y-6">
-                      {/* Personal Information */}
                       <div className="space-y-4">
-                        <h3 className="text-lg font-semibold text-primary">Personal Information</h3>
+                        <h3 className="text-lg font-heading font-semibold text-primary">Personal Information</h3>
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
-                            <Label htmlFor="fullName">Full Name *</Label>
-                            <Input id="fullName" placeholder="Enter your full name" required />
+                            <Label htmlFor="fullName" className="text-foreground">Full Name *</Label>
+                            <Input id="fullName" placeholder="Enter your full name" required className="mt-1.5 h-12 rounded-xl" />
                           </div>
                           <div>
-                            <Label htmlFor="phone">Phone Number *</Label>
-                            <Input id="phone" type="tel" placeholder="+234 xxx xxx xxxx" required />
+                            <Label htmlFor="phone" className="text-foreground">Phone Number *</Label>
+                            <Input id="phone" type="tel" placeholder="+234 xxx xxx xxxx" required className="mt-1.5 h-12 rounded-xl" />
                           </div>
                         </div>
                         <div>
-                          <Label htmlFor="email">Email Address *</Label>
-                          <Input id="email" type="email" placeholder="your@email.com" required />
+                          <Label htmlFor="email" className="text-foreground">Email Address *</Label>
+                          <Input id="email" type="email" placeholder="your@email.com" required className="mt-1.5 h-12 rounded-xl" />
                         </div>
                       </div>
 
-                      {/* Trip Details */}
-                      <div className="space-y-4 pt-6 border-t">
-                        <h3 className="text-lg font-semibold text-primary">Trip Details</h3>
+                      <div className="space-y-4 pt-6 border-t border-border">
+                        <h3 className="text-lg font-heading font-semibold text-primary">Trip Details</h3>
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
-                            <Label htmlFor="pickup">Pickup Location *</Label>
-                            <Input id="pickup" placeholder="Enter pickup address" required />
+                            <Label htmlFor="pickup" className="text-foreground">Pickup Location *</Label>
+                            <Input id="pickup" placeholder="Enter pickup address" required className="mt-1.5 h-12 rounded-xl" />
                           </div>
                           <div>
-                            <Label htmlFor="destination">Destination *</Label>
-                            <Input id="destination" placeholder="Enter destination" required />
+                            <Label htmlFor="destination" className="text-foreground">Destination *</Label>
+                            <Input id="destination" placeholder="Enter destination" required className="mt-1.5 h-12 rounded-xl" />
                           </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
-                            <Label htmlFor="date">Date *</Label>
-                            <Input id="date" type="date" required />
+                            <Label htmlFor="date" className="text-foreground">Date *</Label>
+                            <Input id="date" type="date" required className="mt-1.5 h-12 rounded-xl" />
                           </div>
                           <div>
-                            <Label htmlFor="time">Time *</Label>
-                            <Input id="time" type="time" required />
+                            <Label htmlFor="time" className="text-foreground">Time *</Label>
+                            <Input id="time" type="time" required className="mt-1.5 h-12 rounded-xl" />
                           </div>
                         </div>
                       </div>
 
-                      {/* Security Configuration */}
-                      <div className="space-y-4 pt-6 border-t">
-                        <h3 className="text-lg font-semibold text-primary">Security Configuration</h3>
+                      <div className="space-y-4 pt-6 border-t border-border">
+                        <h3 className="text-lg font-heading font-semibold text-primary">Security Configuration</h3>
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
-                            <Label htmlFor="escortType">Escort Type *</Label>
+                            <Label className="text-foreground">Escort Type *</Label>
                             <Select value={escortType} onValueChange={setEscortType}>
-                              <SelectTrigger>
-                                <SelectValue />
-                              </SelectTrigger>
+                              <SelectTrigger className="mt-1.5 h-12 rounded-xl"><SelectValue /></SelectTrigger>
                               <SelectContent>
                                 <SelectItem value="armed">Armed Officers</SelectItem>
                                 <SelectItem value="unarmed">Unarmed Officers</SelectItem>
@@ -127,27 +121,21 @@ const Booking = () => {
                             </Select>
                           </div>
                           <div>
-                            <Label htmlFor="officers">Number of Officers *</Label>
+                            <Label className="text-foreground">Number of Officers *</Label>
                             <Select value={officers.toString()} onValueChange={(v) => setOfficers(Number(v))}>
-                              <SelectTrigger>
-                                <SelectValue />
-                              </SelectTrigger>
+                              <SelectTrigger className="mt-1.5 h-12 rounded-xl"><SelectValue /></SelectTrigger>
                               <SelectContent>
-                                <SelectItem value="1">1 Officer</SelectItem>
-                                <SelectItem value="2">2 Officers</SelectItem>
-                                <SelectItem value="3">3 Officers</SelectItem>
-                                <SelectItem value="4">4 Officers</SelectItem>
-                                <SelectItem value="5">5+ Officers</SelectItem>
+                                {[1,2,3,4,5].map(n => (
+                                  <SelectItem key={n} value={n.toString()}>{n === 5 ? '5+ Officers' : `${n} Officer${n > 1 ? 's' : ''}`}</SelectItem>
+                                ))}
                               </SelectContent>
                             </Select>
                           </div>
                         </div>
                         <div>
-                          <Label htmlFor="duration">Duration (Days) *</Label>
+                          <Label className="text-foreground">Duration (Days) *</Label>
                           <Select value={duration.toString()} onValueChange={(v) => setDuration(Number(v))}>
-                            <SelectTrigger>
-                              <SelectValue />
-                            </SelectTrigger>
+                            <SelectTrigger className="mt-1.5 h-12 rounded-xl"><SelectValue /></SelectTrigger>
                             <SelectContent>
                               <SelectItem value="1">1 Day</SelectItem>
                               <SelectItem value="2">2 Days</SelectItem>
@@ -159,45 +147,21 @@ const Booking = () => {
                         </div>
                       </div>
 
-                      {/* Add-ons */}
-                      <div className="space-y-4 pt-6 border-t">
-                        <h3 className="text-lg font-semibold text-primary">Additional Services</h3>
+                      <div className="space-y-4 pt-6 border-t border-border">
+                        <h3 className="text-lg font-heading font-semibold text-primary">Additional Services</h3>
                         <div className="space-y-3">
-                          <div className="flex items-center gap-2">
-                            <Checkbox
-                              id="tourGuide"
-                              checked={addOns.tourGuide}
-                              onCheckedChange={(checked) =>
-                                setAddOns({ ...addOns, tourGuide: checked as boolean })
-                              }
-                            />
-                            <Label htmlFor="tourGuide" className="cursor-pointer">
-                              Tour Guide (+₦30,000/day)
-                            </Label>
+                          <div className="flex items-center gap-3 p-3 rounded-xl border border-border hover:border-accent/30 transition-colors">
+                            <Checkbox id="tourGuide" checked={addOns.tourGuide} onCheckedChange={(checked) => setAddOns({ ...addOns, tourGuide: checked as boolean })} />
+                            <Label htmlFor="tourGuide" className="cursor-pointer text-foreground flex-1">Tour Guide (+₦30,000/day)</Label>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <Checkbox
-                              id="suvRental"
-                              checked={addOns.suvRental}
-                              onCheckedChange={(checked) =>
-                                setAddOns({ ...addOns, suvRental: checked as boolean })
-                              }
-                            />
-                            <Label htmlFor="suvRental" className="cursor-pointer">
-                              Luxury SUV Rental (+₦50,000/day)
-                            </Label>
+                          <div className="flex items-center gap-3 p-3 rounded-xl border border-border hover:border-accent/30 transition-colors">
+                            <Checkbox id="suvRental" checked={addOns.suvRental} onCheckedChange={(checked) => setAddOns({ ...addOns, suvRental: checked as boolean })} />
+                            <Label htmlFor="suvRental" className="cursor-pointer text-foreground flex-1">Luxury SUV Rental (+₦50,000/day)</Label>
                           </div>
                           <div>
-                            <Label htmlFor="convoyVehicles">Additional Convoy Vehicles</Label>
-                            <Select
-                              value={addOns.convoyVehicles.toString()}
-                              onValueChange={(v) =>
-                                setAddOns({ ...addOns, convoyVehicles: Number(v) })
-                              }
-                            >
-                              <SelectTrigger>
-                                <SelectValue />
-                              </SelectTrigger>
+                            <Label className="text-foreground">Additional Convoy Vehicles</Label>
+                            <Select value={addOns.convoyVehicles.toString()} onValueChange={(v) => setAddOns({ ...addOns, convoyVehicles: Number(v) })}>
+                              <SelectTrigger className="mt-1.5 h-12 rounded-xl"><SelectValue /></SelectTrigger>
                               <SelectContent>
                                 <SelectItem value="0">None</SelectItem>
                                 <SelectItem value="1">1 Vehicle (+₦75,000)</SelectItem>
@@ -209,25 +173,14 @@ const Booking = () => {
                         </div>
                       </div>
 
-                      {/* Special Requirements */}
-                      <div className="space-y-4 pt-6 border-t">
-                        <h3 className="text-lg font-semibold text-primary">Special Requirements</h3>
-                        <div>
-                          <Label htmlFor="notes">Additional Notes</Label>
-                          <Textarea
-                            id="notes"
-                            placeholder="Any special requirements or instructions..."
-                            rows={4}
-                          />
-                        </div>
+                      <div className="space-y-4 pt-6 border-t border-border">
+                        <h3 className="text-lg font-heading font-semibold text-primary">Special Requirements</h3>
+                        <Textarea id="notes" placeholder="Any special requirements or instructions..." rows={4} className="rounded-xl" />
                       </div>
 
-                      <Button
-                        type="submit"
-                        size="lg"
-                        className="w-full bg-accent hover:bg-accent-dark text-primary font-semibold"
-                      >
+                      <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent-dark text-accent-foreground font-bold rounded-xl h-14 transition-all duration-300 hover:-translate-y-0.5 shadow-gold">
                         Submit Booking Request
+                        <ArrowRight className="h-5 w-5 ml-2" />
                       </Button>
                     </form>
                   </CardContent>
@@ -235,66 +188,65 @@ const Booking = () => {
               </div>
 
               {/* Price Summary */}
-              <div className="lg:col-span-1">
-                <Card className="border-2 border-accent sticky top-24">
+              <div className="lg:col-span-1 animate-on-scroll">
+                <Card className="border-2 border-accent/30 sticky top-24 shadow-luxury">
                   <CardHeader>
-                    <CardTitle className="text-2xl font-heading flex items-center gap-2">
-                      <Calculator className="h-6 w-6 text-accent" />
+                    <CardTitle className="text-2xl font-heading flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                        <Calculator className="h-5 w-5 text-accent" />
+                      </div>
                       Price Estimate
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="space-y-3">
-                      <div className="flex justify-between pb-2 border-b">
-                        <span className="text-muted-foreground">Escort Type:</span>
-                        <span className="font-semibold">{escortType === 'armed' ? 'Armed' : 'Unarmed'}</span>
-                      </div>
-                      <div className="flex justify-between pb-2 border-b">
-                        <span className="text-muted-foreground">Officers:</span>
-                        <span className="font-semibold">{officers}</span>
-                      </div>
-                      <div className="flex justify-between pb-2 border-b">
-                        <span className="text-muted-foreground">Duration:</span>
-                        <span className="font-semibold">{duration} day(s)</span>
-                      </div>
+                      {[
+                        { label: 'Escort Type', value: escortType === 'armed' ? 'Armed' : 'Unarmed' },
+                        { label: 'Officers', value: String(officers) },
+                        { label: 'Duration', value: `${duration} day(s)` },
+                      ].map((item, i) => (
+                        <div key={i} className="flex justify-between pb-2 border-b border-border">
+                          <span className="text-muted-foreground text-sm">{item.label}:</span>
+                          <span className="font-semibold text-foreground text-sm">{item.value}</span>
+                        </div>
+                      ))}
                       {addOns.tourGuide && (
-                        <div className="flex justify-between pb-2 border-b">
-                          <span className="text-muted-foreground">Tour Guide:</span>
-                          <span className="font-semibold">Yes</span>
+                        <div className="flex justify-between pb-2 border-b border-border">
+                          <span className="text-muted-foreground text-sm">Tour Guide:</span>
+                          <span className="font-semibold text-foreground text-sm">Yes</span>
                         </div>
                       )}
                       {addOns.suvRental && (
-                        <div className="flex justify-between pb-2 border-b">
-                          <span className="text-muted-foreground">SUV Rental:</span>
-                          <span className="font-semibold">Yes</span>
+                        <div className="flex justify-between pb-2 border-b border-border">
+                          <span className="text-muted-foreground text-sm">SUV Rental:</span>
+                          <span className="font-semibold text-foreground text-sm">Yes</span>
                         </div>
                       )}
                       {addOns.convoyVehicles > 0 && (
-                        <div className="flex justify-between pb-2 border-b">
-                          <span className="text-muted-foreground">Convoy Vehicles:</span>
-                          <span className="font-semibold">{addOns.convoyVehicles}</span>
+                        <div className="flex justify-between pb-2 border-b border-border">
+                          <span className="text-muted-foreground text-sm">Convoy Vehicles:</span>
+                          <span className="font-semibold text-foreground text-sm">{addOns.convoyVehicles}</span>
                         </div>
                       )}
                     </div>
 
-                    <div className="pt-4 border-t-2 border-accent">
+                    <div className="pt-4 border-t-2 border-accent/30">
                       <div className="flex justify-between items-center">
-                        <span className="text-lg font-semibold">Estimated Total:</span>
-                        <span className="text-2xl font-bold text-accent">₦{calculatePrice()}</span>
+                        <span className="text-lg font-semibold text-foreground">Estimated Total:</span>
+                        <span className="text-2xl font-heading font-bold text-gradient">₦{calculatePrice()}</span>
                       </div>
-                      <p className="text-xs text-muted-foreground mt-2">
-                        * Final price may vary based on specific requirements
-                      </p>
+                      <p className="text-xs text-muted-foreground mt-2">* Final price may vary based on specific requirements</p>
                     </div>
 
-                    <div className="bg-muted p-4 rounded-lg space-y-2">
-                      <p className="text-sm font-semibold">What's Included:</p>
-                      <ul className="text-xs text-muted-foreground space-y-1">
-                        <li>✓ Professional security officers</li>
-                        <li>✓ Risk assessment</li>
-                        <li>✓ Communication equipment</li>
-                        <li>✓ Emergency response</li>
-                        <li>✓ 24/7 support</li>
+                    <div className="bg-muted p-4 rounded-xl space-y-2">
+                      <p className="text-sm font-heading font-semibold text-foreground">What's Included:</p>
+                      <ul className="text-xs text-muted-foreground space-y-1.5">
+                        {['Professional security officers', 'Risk assessment', 'Communication equipment', 'Emergency response', '24/7 support'].map((item, i) => (
+                          <li key={i} className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </CardContent>

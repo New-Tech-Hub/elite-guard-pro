@@ -1,88 +1,105 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowUpRight } from 'lucide-react';
 import logo from '@/assets/logo.jpeg';
 
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="1145 Allied Protections" className="h-12 w-12 rounded-lg object-cover" />
+            <div className="flex items-center gap-3 mb-5">
+              <img src={logo} alt="1145 Allied Protections" className="h-12 w-12 rounded-xl object-cover" />
               <div className="flex flex-col">
                 <span className="text-lg font-heading font-bold">1145 Allied</span>
-                <span className="text-xs text-accent">PROTECTIONS LTD</span>
+                <span className="text-xs text-accent font-semibold tracking-wider">PROTECTIONS LTD</span>
               </div>
             </div>
-            <p className="text-sm text-primary-foreground/80 mb-4">
+            <p className="text-sm text-primary-foreground/70 mb-6 leading-relaxed">
               Nigeria's premier VIP escort and security services. Professional protection you can trust.
             </p>
-            <div className="flex gap-3">
-              <a href="#" className="p-2 bg-primary-glow hover:bg-accent transition-colors rounded-lg">
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a href="#" className="p-2 bg-primary-glow hover:bg-accent transition-colors rounded-lg">
-                <Twitter className="h-4 w-4" />
-              </a>
-              <a href="#" className="p-2 bg-primary-glow hover:bg-accent transition-colors rounded-lg">
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a href="#" className="p-2 bg-primary-glow hover:bg-accent transition-colors rounded-lg">
-                <Linkedin className="h-4 w-4" />
-              </a>
+            <div className="flex gap-2">
+              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                <a key={i} href="#" className="w-10 h-10 rounded-xl bg-primary-foreground/5 hover:bg-accent hover:text-accent-foreground flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5">
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-heading font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Home</Link></li>
-              <li><Link to="/about" className="text-sm text-primary-foreground/80 hover:text-accent transition-colors">About Us</Link></li>
-              <li><Link to="/services" className="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Our Services</Link></li>
-              <li><Link to="/pricing" className="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Pricing</Link></li>
-              <li><Link to="/contact" className="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Contact</Link></li>
+            <h3 className="text-base font-heading font-semibold mb-5">Quick Links</h3>
+            <ul className="space-y-3">
+              {[
+                { to: '/', label: 'Home' },
+                { to: '/about', label: 'About Us' },
+                { to: '/services', label: 'Our Services' },
+                { to: '/pricing', label: 'Pricing' },
+                { to: '/contact', label: 'Contact' },
+              ].map(({ to, label }) => (
+                <li key={to}>
+                  <Link to={to} className="text-sm text-primary-foreground/70 hover:text-accent transition-colors inline-flex items-center gap-1 group">
+                    {label}
+                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-heading font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
-              <li><Link to="/services" className="text-sm text-primary-foreground/80 hover:text-accent transition-colors">VIP Escort</Link></li>
-              <li><Link to="/airport-pickup" className="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Airport Pickup</Link></li>
-              <li><Link to="/tour-guide" className="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Tour Guide Security</Link></li>
-              <li><Link to="/booking" className="text-sm text-primary-foreground/80 hover:text-accent transition-colors">Book Service</Link></li>
+            <h3 className="text-base font-heading font-semibold mb-5">Services</h3>
+            <ul className="space-y-3">
+              {[
+                { to: '/services', label: 'VIP Escort' },
+                { to: '/airport-pickup', label: 'Airport Pickup' },
+                { to: '/tour-guide', label: 'Tour Guide Security' },
+                { to: '/booking', label: 'Book Service' },
+              ].map(({ to, label }) => (
+                <li key={to}>
+                  <Link to={to} className="text-sm text-primary-foreground/70 hover:text-accent transition-colors inline-flex items-center gap-1 group">
+                    {label}
+                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-heading font-semibold mb-4">Contact Us</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2">
-                <Phone className="h-5 w-5 text-accent mt-0.5" />
+            <h3 className="text-base font-heading font-semibold mb-5">Contact Us</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-accent/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Phone className="h-4 w-4 text-accent" />
+                </div>
                 <div>
-                  <p className="text-sm font-semibold text-accent">Emergency Hotline</p>
-                  <a href="tel:+2348012345678" className="text-sm text-primary-foreground/80 hover:text-accent">
+                  <p className="text-xs text-accent font-semibold mb-0.5">Emergency Hotline</p>
+                  <a href="tel:+2348012345678" className="text-sm text-primary-foreground/70 hover:text-accent transition-colors">
                     +234 801 234 5678
                   </a>
                 </div>
               </li>
-              <li className="flex items-start gap-2">
-                <Mail className="h-5 w-5 text-accent mt-0.5" />
+              <li className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-accent/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Mail className="h-4 w-4 text-accent" />
+                </div>
                 <div>
-                  <a href="mailto:info@1145alliedprotections.ng" className="text-sm text-primary-foreground/80 hover:text-accent">
+                  <a href="mailto:info@1145alliedprotections.ng" className="text-sm text-primary-foreground/70 hover:text-accent transition-colors">
                     info@1145alliedprotections.ng
                   </a>
                 </div>
               </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="h-5 w-5 text-accent mt-0.5" />
+              <li className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-accent/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <MapPin className="h-4 w-4 text-accent" />
+                </div>
                 <div>
-                  <p className="text-sm text-primary-foreground/80">
+                  <p className="text-sm text-primary-foreground/70">
                     Plot 123, Victoria Island<br />Lagos, Nigeria
                   </p>
                 </div>
@@ -92,16 +109,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-primary-glow">
+        <div className="pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-primary-foreground/60">
+            <p className="text-sm text-primary-foreground/50">
               © 2025 1145 Allied Protections Ltd. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <Link to="#" className="text-sm text-primary-foreground/60 hover:text-accent transition-colors">
+              <Link to="#" className="text-sm text-primary-foreground/50 hover:text-accent transition-colors">
                 Privacy Policy
               </Link>
-              <Link to="#" className="text-sm text-primary-foreground/60 hover:text-accent transition-colors">
+              <Link to="#" className="text-sm text-primary-foreground/50 hover:text-accent transition-colors">
                 Terms of Service
               </Link>
             </div>

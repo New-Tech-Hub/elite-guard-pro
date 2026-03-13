@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Phone } from 'lucide-react';
 import heroSlide1 from '@/assets/hero-security.jpg';
 import heroSlide2 from '@/assets/hero-slide-2.jpg';
 import heroSlide3 from '@/assets/hero-slide-3.jpg';
@@ -63,7 +63,7 @@ const HeroSlider = () => {
   }, [nextSlide]);
 
   return (
-    <section className="relative pt-20 min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative pt-20 min-h-[92vh] flex items-center overflow-hidden">
       {/* Background slides */}
       {slides.map((slide, index) => (
         <div
@@ -79,7 +79,9 @@ const HeroSlider = () => {
               transform: currentSlide === index ? 'scale(1.08)' : 'scale(1)',
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />
+          {/* Stronger overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-primary/30" />
         </div>
       ))}
 
@@ -92,48 +94,49 @@ const HeroSlider = () => {
               className="transition-all duration-700 ease-out"
               style={{
                 opacity: currentSlide === index ? 1 : 0,
-                transform: currentSlide === index ? 'translateY(0)' : 'translateY(20px)',
+                transform: currentSlide === index ? 'translateY(0)' : 'translateY(30px)',
                 position: currentSlide === index ? 'relative' : 'absolute',
                 pointerEvents: currentSlide === index ? 'auto' : 'none',
               }}
             >
-              <div className="inline-block mb-4 px-4 py-2 bg-accent/10 backdrop-blur-sm border border-accent/20 rounded-full">
-                <span className="text-accent font-semibold text-sm">{slide.badge}</span>
+              <div className="inline-block mb-5 px-5 py-2.5 glass rounded-full">
+                <span className="text-accent font-semibold text-sm tracking-wide">{slide.badge}</span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-heading font-bold text-primary-foreground mb-6 leading-tight">
-                {slide.heading} <span className="text-accent">{slide.highlight}</span>
+              <h1 className="text-5xl md:text-7xl font-heading font-bold text-primary-foreground mb-6 leading-[1.1]">
+                {slide.heading}{' '}
+                <span className="text-gradient">{slide.highlight}</span>
               </h1>
-              <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl">
+              <p className="text-lg md:text-xl text-primary-foreground/85 mb-10 max-w-2xl leading-relaxed">
                 {slide.description}
               </p>
             </div>
           ))}
 
-          {/* CTA Buttons - always visible */}
-          <div className="flex flex-col md:flex-row gap-4 items-stretch relative z-20">
-            <Link to="/booking" className="flex-1 md:flex-initial">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 items-stretch relative z-20">
+            <Link to="/booking" className="sm:flex-initial">
               <Button
                 size="lg"
-                className="bg-[#d4a017] hover:bg-[#b88a12] text-[#0b1f3a] font-semibold px-8 h-14 text-base md:text-lg rounded-lg shadow-lg shadow-[#d4a017]/30 hover:shadow-xl hover:shadow-[#d4a017]/40 transition-all duration-300 hover:-translate-y-0.5 w-full md:w-auto"
+                className="bg-accent hover:bg-accent-dark text-accent-foreground font-bold px-8 h-14 text-base rounded-xl shadow-gold hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 w-full pulse-glow"
               >
                 Book Escort Now
               </Button>
             </Link>
-            <Link to="/contact" className="flex-1 md:flex-initial">
+            <Link to="/contact" className="sm:flex-initial">
               <Button
                 size="lg"
-                className="bg-[#0b1f3a] hover:bg-[#162d4d] text-white font-semibold px-8 h-14 text-base md:text-lg rounded-lg shadow-lg shadow-[#0b1f3a]/30 hover:shadow-xl hover:shadow-[#0b1f3a]/40 transition-all duration-300 hover:-translate-y-0.5 w-full md:w-auto"
+                className="bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground font-semibold px-8 h-14 text-base rounded-xl border border-primary-foreground/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 w-full"
               >
-                Request Security Consultation
+                Request Consultation
               </Button>
             </Link>
-            <a href="tel:+2348012345678" className="flex-1 md:flex-initial">
+            <a href="tel:+2348012345678" className="sm:flex-initial">
               <Button
                 size="lg"
-                variant="outline"
-                className="border-2 border-[#0b1f3a] text-[#0b1f3a] hover:bg-[#0b1f3a] hover:text-white h-14 px-8 text-base md:text-lg rounded-lg transition-all duration-300 hover:-translate-y-0.5 w-full md:w-auto backdrop-blur-sm"
+                className="bg-primary-foreground hover:bg-primary-foreground/90 text-primary font-semibold px-8 h-14 text-base rounded-xl transition-all duration-300 hover:-translate-y-0.5 w-full"
               >
-                Call for Immediate Protection
+                <Phone className="h-5 w-5 mr-2" />
+                Call Now
               </Button>
             </a>
           </div>
@@ -143,14 +146,14 @@ const HeroSlider = () => {
       {/* Navigation arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300 group"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full glass flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300 group"
         aria-label="Previous slide"
       >
         <ChevronLeft className="h-6 w-6 group-hover:-translate-x-0.5 transition-transform" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300 group"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full glass flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300 group"
         aria-label="Next slide"
       >
         <ChevronRight className="h-6 w-6 group-hover:translate-x-0.5 transition-transform" />
@@ -162,15 +165,18 @@ const HeroSlider = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all duration-500 ${
+            className={`h-2.5 rounded-full transition-all duration-500 ${
               currentSlide === index
-                ? 'w-10 bg-accent'
-                : 'w-2 bg-primary-foreground/40 hover:bg-primary-foreground/60'
+                ? 'w-12 bg-accent shadow-gold'
+                : 'w-2.5 bg-primary-foreground/30 hover:bg-primary-foreground/50'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
+
+      {/* Decorative bottom edge */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
     </section>
   );
 };
