@@ -2,106 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* EliteShield Luxury Security Theme */
-    --background: 0 0% 100%;
-    --foreground: 210 95% 12%;
+    /* EliteShield — Deep Navy & Warm Gold */
+    --background: 210 25% 98%;
+    --foreground: 215 50% 15%;
     
-    /* Navy Blue Primary - Military Grade */
-    --primary: 210 95% 12%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 210 70% 25%;
+    /* Navy Primary */
+    --primary: 215 65% 14%;
+    --primary-foreground: 40 20% 95%;
+    --primary-glow: 215 55% 22%;
     
-    /* Gold Accent - Luxury Premium */
-    --accent: 40 58% 55%;
-    --accent-foreground: 210 95% 12%;
-    --accent-dark: 40 45% 40%;
+    /* Warm Gold Accent */
+    --accent: 38 72% 52%;
+    --accent-foreground: 215 65% 14%;
+    --accent-dark: 38 55% 42%;
     
     --card: 0 0% 100%;
-    --card-foreground: 210 95% 12%;
+    --card-foreground: 215 50% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 95% 12%;
+    --popover-foreground: 215 50% 15%;
 
-    --secondary: 210 20% 92%;
-    --secondary-foreground: 210 95% 12%;
+    --secondary: 215 20% 94%;
+    --secondary-foreground: 215 50% 15%;
 
-    --muted: 210 15% 95%;
-    --muted-foreground: 210 20% 45%;
+    --muted: 215 15% 96%;
+    --muted-foreground: 215 15% 45%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 88%;
-    --ring: 40 58% 55%;
+    --border: 215 20% 90%;
+    --input: 215 20% 88%;
+    --ring: 38 72% 52%;
 
     --radius: 0.75rem;
     
-    /* Custom Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(210, 95%, 12%), hsl(210, 85%, 18%));
-    --gradient-gold: linear-gradient(135deg, hsl(40, 58%, 55%), hsl(40, 45%, 40%));
-    --gradient-hero: linear-gradient(135deg, hsl(210, 95%, 12%) 0%, hsl(210, 80%, 20%) 100%);
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215, 65%, 14%), hsl(215, 55%, 22%));
+    --gradient-gold: linear-gradient(135deg, hsl(38, 72%, 52%), hsl(38, 55%, 42%));
+    --gradient-hero: linear-gradient(160deg, hsl(215, 65%, 10%) 0%, hsl(215, 50%, 20%) 50%, hsl(215, 40%, 28%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(210, 25%, 98%) 0%, hsl(215, 20%, 94%) 100%);
     
     /* Shadows */
-    --shadow-luxury: 0 10px 40px -10px hsl(210 95% 12% / 0.3);
-    --shadow-gold: 0 4px 20px hsl(40 58% 55% / 0.25);
+    --shadow-luxury: 0 20px 60px -15px hsl(215 65% 14% / 0.2);
+    --shadow-gold: 0 8px 30px hsl(38 72% 52% / 0.2);
+    --shadow-card: 0 4px 20px hsl(215 30% 50% / 0.08);
+    --shadow-card-hover: 0 12px 40px hsl(215 30% 50% / 0.15);
     
     /* Transitions */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 210 95% 8%;
+    --background: 215 50% 7%;
     --foreground: 0 0% 98%;
 
-    --card: 210 90% 10%;
+    --card: 215 45% 10%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 210 90% 10%;
+    --popover: 215 45% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 40 58% 55%;
-    --primary-foreground: 210 95% 12%;
-    --primary-glow: 40 45% 40%;
+    --primary: 38 72% 52%;
+    --primary-foreground: 215 65% 14%;
+    --primary-glow: 38 55% 42%;
 
-    --accent: 40 58% 55%;
-    --accent-foreground: 210 95% 12%;
-    --accent-dark: 40 45% 40%;
+    --accent: 38 72% 52%;
+    --accent-foreground: 215 65% 14%;
+    --accent-dark: 38 55% 42%;
 
-    --secondary: 210 50% 15%;
+    --secondary: 215 40% 15%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 20%;
-    --muted-foreground: 210 15% 65%;
+    --muted: 215 35% 18%;
+    --muted-foreground: 215 15% 65%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 210 40% 25%;
-    --input: 210 40% 25%;
-    --ring: 40 58% 55%;
+    --border: 215 35% 22%;
+    --input: 215 35% 22%;
+    --ring: 38 72% 52%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -119,10 +113,86 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground font-body antialiased;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
+  }
+}
+
+@layer utilities {
+  /* Scroll-triggered fade-in */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered children */
+  .stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .stagger-children.visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
+  .stagger-children.visible > *:nth-child(2) { transition-delay: 100ms; opacity: 1; transform: translateY(0); }
+  .stagger-children.visible > *:nth-child(3) { transition-delay: 200ms; opacity: 1; transform: translateY(0); }
+  .stagger-children.visible > *:nth-child(4) { transition-delay: 300ms; opacity: 1; transform: translateY(0); }
+  .stagger-children.visible > *:nth-child(5) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
+  .stagger-children.visible > *:nth-child(6) { transition-delay: 500ms; opacity: 1; transform: translateY(0); }
+
+  /* Glass morphism */
+  .glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    background: hsl(0 0% 100% / 0.08);
+    border: 1px solid hsl(0 0% 100% / 0.12);
+  }
+
+  /* Shimmer effect */
+  .shimmer {
+    background: linear-gradient(
+      110deg,
+      transparent 33%,
+      hsl(38, 72%, 52%, 0.15) 50%,
+      transparent 67%
+    );
+    background-size: 300% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -100% 0; }
+  }
+
+  /* Card lift */
+  .card-interactive {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-interactive:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(38, 72%, 52%), hsl(38, 80%, 62%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtle pulse glow */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(38 72% 52% / 0.4); }
+    50% { box-shadow: 0 0 20px 4px hsl(38 72% 52% / 0.2); }
   }
 }
