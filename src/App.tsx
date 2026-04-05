@@ -25,6 +25,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
+        <FloatingCTA />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
