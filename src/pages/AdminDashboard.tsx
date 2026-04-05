@@ -1,46 +1,29 @@
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Shield, Users, Calendar, DollarSign, Car, UserCheck } from 'lucide-react';
+import { Shield, Users, Calendar, DollarSign, Car, UserCheck, ArrowRight } from 'lucide-react';
 import { toast } from 'sonner';
 
 const AdminDashboard = () => {
-  const [selectedBooking, setSelectedBooking] = useState<string | null>(null);
+  const scrollRef = useScrollAnimation();
 
-  // Mock data
   const stats = [
-    { label: 'Total Bookings', value: '47', icon: Calendar, color: 'text-blue-600' },
-    { label: 'Active Escorts', value: '12', icon: Shield, color: 'text-green-600' },
-    { label: 'Available Officers', value: '18', icon: UserCheck, color: 'text-accent' },
-    { label: 'Revenue (Month)', value: '₦8.4M', icon: DollarSign, color: 'text-primary' },
+    { label: 'Total Bookings', value: '47', icon: Calendar },
+    { label: 'Active Escorts', value: '12', icon: Shield },
+    { label: 'Available Officers', value: '18', icon: UserCheck },
+    { label: 'Revenue (Month)', value: '₦8.4M', icon: DollarSign },
   ];
 
   const pendingBookings = [
-    {
-      id: 'BK001',
-      client: 'Chief Adebayo M.',
-      type: 'VIP Escort',
-      date: '2025-12-01',
-      time: '09:00 AM',
-      officers: 2,
-      status: 'pending',
-    },
-    {
-      id: 'BK002',
-      client: 'Dr. Sarah Johnson',
-      type: 'Airport Pickup',
-      date: '2025-12-05',
-      time: '2:30 PM',
-      officers: 1,
-      status: 'pending',
-    },
+    { id: 'BK001', client: 'Chief Adebayo M.', type: 'VIP Escort', date: '2025-12-01', time: '09:00 AM', officers: 2, status: 'pending' },
+    { id: 'BK002', client: 'Dr. Sarah Johnson', type: 'Airport Pickup', date: '2025-12-05', time: '2:30 PM', officers: 1, status: 'pending' },
   ];
 
   const officers = [
@@ -60,16 +43,21 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" ref={scrollRef}>
       <Navbar />
 
-      <section className="pt-32 pb-12 bg-gradient-to-br from-primary via-primary-glow to-primary text-primary-foreground">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-3">
-            <Shield className="h-10 w-10 text-accent" />
+      <section className="pt-32 pb-12 bg-gradient-to-br from-primary via-primary-glow to-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-accent rounded-full blur-[150px]" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 bg-accent/15 rounded-2xl flex items-center justify-center">
+              <Shield className="h-7 w-7 text-accent" />
+            </div>
             <div>
               <h1 className="text-4xl font-heading font-bold">Admin Dashboard</h1>
-              <p className="text-primary-foreground/80">Manage bookings, officers, and operations</p>
+              <p className="text-primary-foreground/75">Manage bookings, officers, and operations</p>
             </div>
           </div>
         </div>
@@ -77,17 +65,19 @@ const AdminDashboard = () => {
 
       <section className="py-12">
         <div className="container mx-auto px-4">
-          {/* Stats Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {/* Stats */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12 stagger-children animate-on-scroll">
             {stats.map((stat, index) => (
-              <Card key={index} className="border-2">
+              <Card key={index} className="border border-border card-interactive group">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">{stat.label}</p>
-                      <p className={`text-3xl font-bold ${stat.color}`}>{stat.value}</p>
+                      <p className="text-3xl font-heading font-bold text-primary">{stat.value}</p>
                     </div>
-                    <stat.icon className={`h-10 w-10 ${stat.color}`} />
+                    <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                      <stat.icon className="h-6 w-6 text-accent" />
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -95,198 +85,181 @@ const AdminDashboard = () => {
           </div>
 
           {/* Tabs */}
-          <Tabs defaultValue="bookings" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-4 lg:w-auto">
-              <TabsTrigger value="bookings">Bookings</TabsTrigger>
-              <TabsTrigger value="officers">Officers</TabsTrigger>
-              <TabsTrigger value="vehicles">Vehicles</TabsTrigger>
-              <TabsTrigger value="reports">Reports</TabsTrigger>
-            </TabsList>
+          <div className="animate-on-scroll">
+            <Tabs defaultValue="bookings" className="space-y-6">
+              <TabsList className="bg-muted/50 border border-border rounded-xl p-1 h-auto">
+                <TabsTrigger value="bookings" className="rounded-lg px-5 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium">Bookings</TabsTrigger>
+                <TabsTrigger value="officers" className="rounded-lg px-5 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium">Officers</TabsTrigger>
+                <TabsTrigger value="vehicles" className="rounded-lg px-5 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium">Vehicles</TabsTrigger>
+                <TabsTrigger value="reports" className="rounded-lg px-5 py-2.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground font-medium">Reports</TabsTrigger>
+              </TabsList>
 
-            {/* Bookings Tab */}
-            <TabsContent value="bookings" className="space-y-6">
-              <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-heading font-bold text-primary">Pending Assignments</h2>
-                <Button className="bg-accent hover:bg-accent-dark text-primary">
-                  View All Bookings
-                </Button>
-              </div>
+              <TabsContent value="bookings" className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-2xl font-heading font-bold text-primary">Pending Assignments</h2>
+                  <Button className="bg-accent hover:bg-accent-dark text-accent-foreground font-semibold rounded-xl">
+                    View All Bookings
+                  </Button>
+                </div>
 
-              {pendingBookings.map((booking) => (
-                <Card key={booking.id} className="border-2">
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <CardTitle className="text-xl font-heading flex items-center gap-3">
-                          {booking.type}
-                          <Badge className="bg-yellow-500 text-white">Pending Assignment</Badge>
-                        </CardTitle>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          Booking ID: {booking.id} • Client: {booking.client}
-                        </p>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid md:grid-cols-2 gap-6 mb-6">
-                      <div>
-                        <p className="text-sm font-semibold mb-2">Booking Details</p>
-                        <p className="text-sm text-muted-foreground">
-                          Date: {booking.date} at {booking.time}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          Officers Required: {booking.officers}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="border-t pt-6">
-                      <p className="text-sm font-semibold mb-3">Assign Officers & Vehicle</p>
-                      <div className="grid md:grid-cols-3 gap-4">
+                {pendingBookings.map((booking) => (
+                  <Card key={booking.id} className="border border-border card-interactive">
+                    <CardHeader>
+                      <div className="flex items-start justify-between">
                         <div>
-                          <Label htmlFor={`officer1-${booking.id}`}>Primary Officer</Label>
-                          <Select>
-                            <SelectTrigger id={`officer1-${booking.id}`}>
-                              <SelectValue placeholder="Select officer" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {officers.filter(o => o.status === 'available').map(officer => (
-                                <SelectItem key={officer.id} value={officer.id}>
-                                  {officer.name}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                        <div>
-                          <Label htmlFor={`vehicle-${booking.id}`}>Vehicle</Label>
-                          <Select>
-                            <SelectTrigger id={`vehicle-${booking.id}`}>
-                              <SelectValue placeholder="Select vehicle" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {vehicles.filter(v => v.status === 'available').map(vehicle => (
-                                <SelectItem key={vehicle.id} value={vehicle.id}>
-                                  {vehicle.model} - {vehicle.plate}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                        <div className="flex items-end">
-                          <Button 
-                            onClick={handleAssignOfficer}
-                            className="w-full bg-accent hover:bg-accent-dark text-primary"
-                          >
-                            Assign & Confirm
-                          </Button>
+                          <CardTitle className="text-xl font-heading flex items-center gap-3">
+                            {booking.type}
+                            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-accent/15 text-accent border border-accent/30">
+                              Pending Assignment
+                            </span>
+                          </CardTitle>
+                          <p className="text-sm text-muted-foreground mt-1">
+                            Booking ID: {booking.id} • Client: {booking.client}
+                          </p>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </TabsContent>
-
-            {/* Officers Tab */}
-            <TabsContent value="officers" className="space-y-6">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-heading font-bold text-primary">Security Personnel</h2>
-                <Button className="bg-accent hover:bg-accent-dark text-primary">
-                  Add New Officer
-                </Button>
-              </div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {officers.map((officer) => (
-                  <Card key={officer.id} className="border-2">
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between mb-4">
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid md:grid-cols-2 gap-6 mb-6">
                         <div>
-                          <h3 className="font-heading font-semibold text-lg">{officer.name}</h3>
-                          <p className="text-sm text-muted-foreground">{officer.id}</p>
+                          <p className="text-sm font-heading font-semibold text-foreground mb-2">Booking Details</p>
+                          <p className="text-sm text-muted-foreground">Date: {booking.date} at {booking.time}</p>
+                          <p className="text-sm text-muted-foreground">Officers Required: {booking.officers}</p>
                         </div>
-                        <Badge className={officer.status === 'available' ? 'bg-green-500' : 'bg-yellow-500'}>
-                          {officer.status}
-                        </Badge>
                       </div>
-                      <div className="space-y-2">
-                        <p className="text-sm">
-                          <span className="font-semibold">Specialty:</span> {officer.specialty}
+
+                      <div className="border-t border-border pt-6">
+                        <p className="text-sm font-heading font-semibold text-foreground mb-3">Assign Officers & Vehicle</p>
+                        <div className="grid md:grid-cols-3 gap-4">
+                          <div>
+                            <Label className="text-foreground text-sm">Primary Officer</Label>
+                            <Select>
+                              <SelectTrigger className="mt-1.5 h-11 rounded-xl"><SelectValue placeholder="Select officer" /></SelectTrigger>
+                              <SelectContent>
+                                {officers.filter(o => o.status === 'available').map(officer => (
+                                  <SelectItem key={officer.id} value={officer.id}>{officer.name}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div>
+                            <Label className="text-foreground text-sm">Vehicle</Label>
+                            <Select>
+                              <SelectTrigger className="mt-1.5 h-11 rounded-xl"><SelectValue placeholder="Select vehicle" /></SelectTrigger>
+                              <SelectContent>
+                                {vehicles.filter(v => v.status === 'available').map(vehicle => (
+                                  <SelectItem key={vehicle.id} value={vehicle.id}>{vehicle.model} - {vehicle.plate}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div className="flex items-end">
+                            <Button onClick={handleAssignOfficer} className="w-full bg-accent hover:bg-accent-dark text-accent-foreground font-semibold rounded-xl h-11 transition-all duration-300 hover:-translate-y-0.5">
+                              Assign & Confirm
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </TabsContent>
+
+              <TabsContent value="officers" className="space-y-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h2 className="text-2xl font-heading font-bold text-primary">Security Personnel</h2>
+                  <Button className="bg-accent hover:bg-accent-dark text-accent-foreground font-semibold rounded-xl">
+                    Add New Officer
+                  </Button>
+                </div>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {officers.map((officer) => (
+                    <Card key={officer.id} className="border border-border card-interactive group">
+                      <CardContent className="p-6">
+                        <div className="flex items-start justify-between mb-4">
+                          <div>
+                            <h3 className="font-heading font-semibold text-lg text-foreground">{officer.name}</h3>
+                            <p className="text-sm text-muted-foreground">{officer.id}</p>
+                          </div>
+                          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                            officer.status === 'available'
+                              ? 'bg-accent/15 text-accent border border-accent/30'
+                              : 'bg-muted text-muted-foreground border border-border'
+                          }`}>
+                            {officer.status}
+                          </span>
+                        </div>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          <span className="font-semibold text-foreground">Specialty:</span> {officer.specialty}
                         </p>
-                        <Button variant="outline" size="sm" className="w-full">
+                        <Button variant="outline" size="sm" className="w-full rounded-xl border-border hover:border-accent/30">
                           View Profile
                         </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
 
-            {/* Vehicles Tab */}
-            <TabsContent value="vehicles" className="space-y-6">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-heading font-bold text-primary">Fleet Management</h2>
-                <Button className="bg-accent hover:bg-accent-dark text-primary">
-                  Add New Vehicle
-                </Button>
-              </div>
+              <TabsContent value="vehicles" className="space-y-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h2 className="text-2xl font-heading font-bold text-primary">Fleet Management</h2>
+                  <Button className="bg-accent hover:bg-accent-dark text-accent-foreground font-semibold rounded-xl">
+                    Add New Vehicle
+                  </Button>
+                </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {vehicles.map((vehicle) => (
-                  <Card key={vehicle.id} className="border-2">
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <div>
-                          <div className="flex items-center gap-2 mb-2">
-                            <Car className="h-5 w-5 text-accent" />
-                            <h3 className="font-heading font-semibold text-lg">{vehicle.model}</h3>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {vehicles.map((vehicle) => (
+                    <Card key={vehicle.id} className="border border-border card-interactive group">
+                      <CardContent className="p-6">
+                        <div className="flex items-start justify-between mb-4">
+                          <div>
+                            <div className="flex items-center gap-2 mb-2">
+                              <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
+                                <Car className="h-4 w-4 text-accent" />
+                              </div>
+                              <h3 className="font-heading font-semibold text-lg text-foreground">{vehicle.model}</h3>
+                            </div>
+                            <p className="text-sm text-muted-foreground">{vehicle.plate}</p>
                           </div>
-                          <p className="text-sm text-muted-foreground">{vehicle.plate}</p>
+                          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                            vehicle.status === 'available'
+                              ? 'bg-accent/15 text-accent border border-accent/30'
+                              : 'bg-primary/10 text-primary border border-primary/20'
+                          }`}>
+                            {vehicle.status}
+                          </span>
                         </div>
-                        <Badge className={vehicle.status === 'available' ? 'bg-green-500' : 'bg-blue-500'}>
-                          {vehicle.status}
-                        </Badge>
-                      </div>
-                      <Button variant="outline" size="sm" className="w-full">
-                        View Details
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
+                        <Button variant="outline" size="sm" className="w-full rounded-xl border-border hover:border-accent/30">
+                          View Details
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
 
-            {/* Reports Tab */}
-            <TabsContent value="reports" className="space-y-6">
-              <h2 className="text-2xl font-heading font-bold text-primary mb-6">Reports & Analytics</h2>
-              
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card className="border-2">
-                  <CardHeader>
-                    <CardTitle>Revenue Overview</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="h-64 flex items-center justify-center bg-muted rounded-lg">
-                      <p className="text-muted-foreground">Chart placeholder - Revenue trends</p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-2">
-                  <CardHeader>
-                    <CardTitle>Booking Statistics</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="h-64 flex items-center justify-center bg-muted rounded-lg">
-                      <p className="text-muted-foreground">Chart placeholder - Booking trends</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </TabsContent>
-          </Tabs>
+              <TabsContent value="reports" className="space-y-6">
+                <h2 className="text-2xl font-heading font-bold text-primary mb-2">Reports & Analytics</h2>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {['Revenue Overview', 'Booking Statistics'].map((title, i) => (
+                    <Card key={i} className="border border-border">
+                      <CardHeader>
+                        <CardTitle className="font-heading">{title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="h-64 flex items-center justify-center bg-muted/50 rounded-xl border border-border">
+                          <p className="text-muted-foreground text-sm">Chart placeholder — {title.toLowerCase()}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+            </Tabs>
+          </div>
         </div>
       </section>
 

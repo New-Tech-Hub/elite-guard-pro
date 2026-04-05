@@ -97,7 +97,7 @@ const TourGuide = () => {
                       <div className="text-lg font-heading font-bold text-gradient">{destination.price}</div>
                     </div>
                     <Link to="/booking">
-                      <Button size="sm" className="bg-primary hover:bg-primary-glow text-primary-foreground rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <Button size="sm" className="bg-primary hover:bg-primary-glow text-primary-foreground rounded-xl md:opacity-0 md:group-hover:opacity-100 transition-all duration-300">
                         Book
                         <ArrowRight className="h-3.5 w-3.5 ml-1" />
                       </Button>

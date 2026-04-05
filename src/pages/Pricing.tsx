@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -175,20 +176,24 @@ const Pricing = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-heading font-bold text-primary mb-10 text-center animate-on-scroll">Pricing FAQs</h2>
-            <div className="space-y-4 stagger-children animate-on-scroll">
+            <Accordion type="single" collapsible className="space-y-3 animate-on-scroll">
               {[
                 { q: 'Do you charge for travel time?', a: 'No, all quoted prices include travel time within major Nigerian cities. For remote locations, a small surcharge may apply.' },
                 { q: 'What payment methods do you accept?', a: 'We accept bank transfers, credit/debit cards, and online payment platforms. Payment is required before service commencement.' },
                 { q: 'Can I cancel or reschedule?', a: 'Yes, with 24 hours notice for full refund. Cancellations within 24 hours incur a 50% fee.' },
+                { q: 'Are your officers licensed?', a: 'Yes, all our security officers are fully licensed, trained, and certified by relevant Nigerian security authorities.' },
+                { q: 'Do you offer long-term contracts?', a: 'Absolutely. We offer monthly and annual contracts with preferential rates. Contact us for a custom enterprise quote.' },
               ].map((faq, i) => (
-                <Card key={i} className="border border-border card-interactive">
-                  <CardContent className="p-6">
-                    <h3 className="font-heading font-semibold text-primary mb-2">{faq.q}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
-                  </CardContent>
-                </Card>
+                <AccordionItem key={i} value={`faq-${i}`} className="border border-border rounded-xl px-6 data-[state=open]:border-accent/40 data-[state=open]:shadow-sm transition-all">
+                  <AccordionTrigger className="text-left font-heading font-semibold text-primary hover:text-accent hover:no-underline py-5">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
               ))}
-            </div>
+            </Accordion>
           </div>
         </div>
       </section>
