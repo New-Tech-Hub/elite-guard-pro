@@ -47,15 +47,14 @@ const AirportPickup = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
+      <section className="relative pt-32 pb-24 overflow-hidden on-dark border-b-4 border-accent">
         <div className="absolute inset-0 z-0">
           <img src={airportImage} alt="Airport VIP Service" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-primary/30" />
+          <div className="absolute inset-0 hero-shade" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-4">Travel Safely</span>
+            <span className="inline-block brand-accent font-semibold text-sm tracking-widest uppercase mb-4">Travel Safely</span>
             <div className="flex items-center gap-3 mb-4">
               <Plane className="h-8 w-8 text-accent" />
               <h1 className="text-4xl md:text-5xl font-heading font-bold text-primary-foreground">

@@ -80,8 +80,8 @@ const Pricing = () => {
                 <CardHeader className="text-center pb-8 pt-8">
                   <CardTitle className="text-2xl font-heading font-bold text-primary mb-2">{tier.name}</CardTitle>
                   <p className="text-sm text-muted-foreground mb-5">{tier.description}</p>
-                  <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-4xl font-heading font-bold text-gradient">{tier.price}</span>
+                   <div className="flex flex-wrap items-baseline justify-center gap-2">
+                     <span className="text-4xl font-heading font-bold text-gradient">{tier.price}</span>
                     <span className="text-muted-foreground">/ {tier.period}</span>
                   </div>
                 </CardHeader>

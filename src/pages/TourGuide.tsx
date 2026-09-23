@@ -79,14 +79,14 @@ const TourGuide = () => {
                 <CardContent className="p-7">
                   <div className="flex items-start justify-between mb-3">
                     <h3 className="text-xl font-heading font-semibold text-primary">{destination.name}</h3>
-                    <div className="flex items-center gap-1 bg-accent/10 px-2.5 py-1 rounded-full">
+                     <div className="flex items-center gap-1 bg-accent/10 px-2.5 py-1 rounded-full shrink-0">
                       <Star className="h-3.5 w-3.5 fill-accent text-accent" />
                       <span className="text-sm font-semibold text-accent">4.9</span>
                     </div>
                   </div>
                   <p className="text-muted-foreground mb-5 text-sm leading-relaxed">{destination.description}</p>
-                  <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <div className="flex items-center gap-4">
+                   <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-border">
+                     <div className="flex flex-wrap items-center gap-4">
                       <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
                         <Clock className="h-4 w-4" />
                         {destination.duration}
