@@ -143,34 +143,40 @@ const HeroSlider = () => {
       </div>
 
       {/* Navigation arrows */}
-      <button
+       <Button
+         variant="ghost"
+         size="icon"
         onClick={prevSlide}
          className="absolute left-4 md:left-8 bottom-5 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-20 w-11 h-11 rounded-full glass flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300 group"
         aria-label="Previous slide"
       >
         <ChevronLeft className="h-6 w-6 group-hover:-translate-x-0.5 transition-transform" />
-      </button>
-      <button
+       </Button>
+       <Button
+         variant="ghost"
+         size="icon"
         onClick={nextSlide}
          className="absolute right-4 md:right-8 bottom-5 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-20 w-11 h-11 rounded-full glass flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300 group"
         aria-label="Next slide"
       >
         <ChevronRight className="h-6 w-6 group-hover:translate-x-0.5 transition-transform" />
-      </button>
+       </Button>
 
       {/* Slide indicators */}
        <div className="absolute bottom-9 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, index) => (
-          <button
+           <Button
+             variant="ghost"
+             size="icon"
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2.5 rounded-full transition-all duration-500 ${
+             className={`!h-2.5 !min-h-0 !p-0 rounded-full transition-all duration-500 ${
               currentSlide === index
                 ? 'w-12 bg-accent shadow-gold'
                 : 'w-2.5 bg-primary-foreground/30 hover:bg-primary-foreground/50'
             }`}
             aria-label={`Go to slide ${index + 1}`}
-          />
+           />
         ))}
       </div>
 
