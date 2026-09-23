@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import HeroSlider from '@/components/HeroSlider';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Shield, Plane, MapPin, Car, Users, Star, CheckCircle, Clock, Award, ArrowRight } from 'lucide-react';
-import heroImage from '@/assets/hero-security.jpg';
+import heroTeam2 from '@/assets/hero-team-2.jpeg.asset.json';
 
 const Index = () => {
   const scrollRef = useScrollAnimation();
@@ -162,7 +162,7 @@ const Index = () => {
             </div>
             <div className="relative animate-on-scroll">
               <img
-                src={heroImage}
+                src={heroTeam2.url}
                 alt="Professional Security Team"
                 className="rounded-2xl shadow-luxury"
               />

@@ -2,39 +2,47 @@ import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, Phone } from 'lucide-react';
-import heroSlide1 from '@/assets/hero-security.jpg';
-import heroSlide2 from '@/assets/hero-slide-2.jpg';
-import heroSlide3 from '@/assets/hero-slide-3.jpg';
-import heroSlide4 from '@/assets/hero-slide-4.jpg';
+import heroTeam1 from '@/assets/hero-team-1.jpeg.asset.json';
+import heroTeam2 from '@/assets/hero-team-2.jpeg.asset.json';
+import heroTeam3 from '@/assets/hero-team-3.jpeg.asset.json';
+import heroTeam4 from '@/assets/hero-team-4.jpeg.asset.json';
+import heroTeam5 from '@/assets/hero-team-5.jpeg.asset.json';
 
 const slides = [
   {
-    image: heroSlide1,
-    badge: "Nigeria's Premier Security Service",
+    image: heroTeam1.url,
+    badge: 'Nigeria\'s Premier Security Service',
     heading: 'Secure VIP Escort Services',
     highlight: 'Across Nigeria',
     description: 'Professional armed escorts, airport pickups, tour guide protection, and convoy services for high-profile individuals and executives.',
   },
   {
-    image: heroSlide2,
-    badge: 'Elite Executive Protection',
+    image: heroTeam2.url,
+    badge: 'Trusted Close Protection',
+    heading: 'Executive Protection',
+    highlight: 'You Can Rely On',
+    description: 'Discreet, highly trained operatives providing close protection for executives, dignitaries, and high-net-worth individuals across all 36 states.',
+  },
+  {
+    image: heroTeam3.url,
+    badge: 'Secure Vehicle Escort',
+    heading: 'Convoy Protection',
+    highlight: '& Secure Transport',
+    description: 'Protective vehicle escorts with advance route planning and professional drivers for every movement, day or night.',
+  },
+  {
+    image: heroTeam4.url,
+    badge: 'Rapid Response Teams',
+    heading: 'Event Security',
+    highlight: '& Crowd Control',
+    description: 'Uniformed and plainclothes officers managing access, crowds, and VIP movements at private, corporate, and public events.',
+  },
+  {
+    image: heroTeam5.url,
+    badge: 'Elite Operational Standards',
     heading: 'Armed & Unarmed',
     highlight: 'Security Details',
-    description: 'Highly trained operatives providing close protection for executives, dignitaries, and high-net-worth individuals across all 36 states.',
-  },
-  {
-    image: heroSlide3,
-    badge: 'Seamless Airport Transfers',
-    heading: 'VIP Airport Pickup',
-    highlight: '& Drop-off',
-    description: 'Meet-and-greet services with secure vehicle transfers from all major Nigerian airports. Travel with confidence from touchdown to destination.',
-  },
-  {
-    image: heroSlide4,
-    badge: 'Maximum Security Transport',
-    heading: 'Armored Convoy',
-    highlight: '& Escort Services',
-    description: 'Military-grade convoy protection with armored vehicles, advance route planning, and tactical response teams for ultimate safety.',
+    description: 'From residential details to full movement security, our officers deliver military-grade discipline with corporate professionalism.',
   },
 ];
 
