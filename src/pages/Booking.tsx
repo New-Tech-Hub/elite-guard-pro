@@ -241,7 +241,7 @@ const Booking = () => {
                     <div className="bg-muted p-4 rounded-xl space-y-2">
                       <p className="text-sm font-heading font-semibold text-foreground">What's Included:</p>
                       <ul className="text-xs text-muted-foreground space-y-1.5">
-                        {['Professional security officers', 'Risk assessment', 'Communication equipment', 'Emergency response', '24/7 support'].map((item, i) => (
+                        {['Professional security officers', 'Advance safety planning', 'Communication equipment', 'Emergency response', '24/7 support'].map((item, i) => (
                           <li key={i} className="flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
                             {item}

@@ -20,7 +20,7 @@ const Pricing = () => {
     {
       name: 'VIP Escort', price: '₦150,000', period: 'per day',
       description: 'Armed security escort for high-profile individuals',
-      features: ['2 armed security officers', 'Luxury SUV transportation', 'Risk assessment', 'Emergency response', 'Communication equipment', 'Route planning'],
+      features: ['2 armed security officers', 'Luxury SUV transportation', 'Advance safety planning', 'Emergency response', 'Communication equipment', 'Route planning'],
       cta: 'Book Escort', link: '/booking', popular: true,
     },
     {

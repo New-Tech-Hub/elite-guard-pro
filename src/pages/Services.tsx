@@ -13,7 +13,7 @@ const Services = () => {
     {
       icon: Shield, title: 'VIP Escort Services',
       description: 'Professional armed and unarmed security escorts for high-profile individuals, executives, and dignitaries.',
-      features: ['Armed or unarmed security personnel', 'Close protection specialists', 'Risk assessment and threat analysis', 'Advance security planning', 'Discreet and professional service', 'Emergency response protocols'],
+      features: ['Armed or unarmed security personnel', 'Close protection specialists', 'Detailed security assessment and planning', 'Advance security planning', 'Discreet and professional service', 'Emergency response protocols'],
       price: 'From ₦150,000/day', link: '/booking',
     },
     {
@@ -31,7 +31,7 @@ const Services = () => {
     {
       icon: Car, title: 'Convoy & Armored Transport',
       description: 'Secure vehicle convoys and armored transportation for maximum safety during travel.',
-      features: ['Armored vehicle fleet', 'Multi-vehicle convoy coordination', 'Route surveillance and monitoring', 'Communication systems', 'Tactical escort teams', 'Emergency evacuation protocols'],
+      features: ['Armored vehicle fleet', 'Multi-vehicle convoy coordination', 'Route surveillance and monitoring', 'Communication systems', 'Professional escort teams', 'Emergency response planning'],
       price: 'Custom pricing', link: '/booking',
     },
     {
@@ -43,7 +43,7 @@ const Services = () => {
     {
       icon: Users, title: 'Executive Protection',
       description: 'Dedicated security teams for corporate executives and high-net-worth individuals.',
-      features: ['Personal security detail', 'Residential security', 'Office/workplace protection', 'Travel security coordination', 'Threat intelligence', 'Long-term security contracts'],
+      features: ['Personal security detail', 'Residential security', 'Office/workplace protection', 'Travel security coordination', 'Ongoing security advisory', 'Long-term security contracts'],
       price: 'Custom pricing', link: '/booking',
     },
   ];

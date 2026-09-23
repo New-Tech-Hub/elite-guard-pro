@@ -9,10 +9,10 @@ const About = () => {
   const scrollRef = useScrollAnimation();
 
   const values = [
-    { icon: Shield, title: 'Security First', description: 'Your safety is our top priority. We employ military-grade protocols and advanced security measures.' },
+    { icon: Shield, title: 'Security First', description: 'Your safety is our top priority. We follow internationally recognized security protocols and modern safety measures.' },
     { icon: Users, title: 'Professional Team', description: 'Our personnel are highly trained, certified, and experienced in VIP protection services.' },
     { icon: Award, title: 'Excellence', description: 'We maintain the highest standards of service delivery and operational excellence.' },
-    { icon: Target, title: 'Precision', description: 'Every detail matters. We plan and execute with military precision and attention to detail.' },
+    { icon: Target, title: 'Precision', description: 'Every detail matters. We plan and execute with precision, care, and attention to every detail.' },
   ];
 
   const achievements = [
@@ -37,7 +37,7 @@ const About = () => {
               About <span className="text-gradient">1145 Allied Protections</span>
             </h1>
             <p className="text-xl text-primary-foreground/85 leading-relaxed">
-              Nigeria's premier VIP escort and security services provider. We combine military-grade security protocols with luxury service delivery.
+              Nigeria's premier VIP escort and security services provider. We combine professional security expertise with polished, first-class service delivery.
             </p>
           </div>
         </div>
@@ -121,9 +121,9 @@ const About = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto animate-on-scroll">
             <span className="inline-block brand-accent font-semibold text-sm tracking-widest uppercase mb-4">Our Team</span>
-            <h2 className="text-4xl font-heading font-bold mb-6">Elite Security Professionals</h2>
+            <h2 className="text-4xl font-heading font-bold mb-6">Trusted Security Professionals</h2>
             <p className="text-lg text-primary-foreground/85 mb-8 leading-relaxed">
-              Our team comprises former military personnel, law enforcement officers, and certified security specialists with extensive experience in VIP protection and risk management.
+              Our team comprises highly trained professionals, licensed officers, and certified security specialists with extensive experience in VIP protection and risk management.
             </p>
             <p className="text-lg text-primary-foreground/70 leading-relaxed">
               Every member undergoes rigorous training, background checks, and continuous professional development.
