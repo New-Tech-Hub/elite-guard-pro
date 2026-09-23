@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -18,8 +19,9 @@ const Booking = () => {
   const [officers, setOfficers] = useState(2);
   const [duration, setDuration] = useState(1);
   const [addOns, setAddOns] = useState({ tourGuide: false, suvRental: false, convoyVehicles: 0 });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const calculatePrice = () => {
+  const calculateTotal = () => {
     const basePrice = escortType === 'armed' ? 150000 : 100000;
     const officerPrice = officers * 50000;
     const durationMultiplier = duration;
@@ -27,12 +29,38 @@ const Booking = () => {
     const suvPrice = addOns.suvRental ? 50000 : 0;
     const convoyPrice = addOns.convoyVehicles * 75000;
     const total = (basePrice + officerPrice + tourGuidePrice + suvPrice) * durationMultiplier + convoyPrice;
-    return total.toLocaleString('en-NG');
+    return total;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success('Booking submitted successfully! We will contact you shortly.');
+    setIsSubmitting(true);
+    const formData = new FormData(e.currentTarget);
+    const { data: { user } } = await supabase.auth.getUser();
+    const { error } = await supabase.from('bookings').insert({
+      user_id: user?.id ?? null,
+      full_name: String(formData.get('fullName') ?? ''),
+      phone: String(formData.get('phone') ?? ''),
+      email: String(formData.get('email') ?? ''),
+      pickup_location: String(formData.get('pickup') ?? ''),
+      destination: String(formData.get('destination') ?? ''),
+      booking_date: String(formData.get('date') ?? ''),
+      booking_time: String(formData.get('time') ?? ''),
+      escort_type: escortType,
+      officers,
+      duration_days: duration,
+      add_ons: addOns,
+      estimated_total: calculateTotal(),
+    });
+
+    setIsSubmitting(false);
+    if (error) {
+      toast.error('We could not save your request. Please try again or call our hotline.');
+      return;
+    }
+
+    e.currentTarget.reset();
+    toast.success('Booking request received. Our team will contact you shortly.');
   };
 
   return (
@@ -70,16 +98,16 @@ const Booking = () => {
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
                             <Label htmlFor="fullName" className="text-foreground">Full Name *</Label>
-                            <Input id="fullName" placeholder="Enter your full name" required className="mt-1.5 h-12 rounded-xl" />
+                            <Input id="fullName" name="fullName" placeholder="Enter your full name" required className="mt-1.5 h-12 rounded-xl" />
                           </div>
                           <div>
                             <Label htmlFor="phone" className="text-foreground">Phone Number *</Label>
-                            <Input id="phone" type="tel" placeholder="+234 xxx xxx xxxx" required className="mt-1.5 h-12 rounded-xl" />
+                            <Input id="phone" name="phone" type="tel" placeholder="+234 xxx xxx xxxx" required className="mt-1.5 h-12 rounded-xl" />
                           </div>
                         </div>
                         <div>
                           <Label htmlFor="email" className="text-foreground">Email Address *</Label>
-                          <Input id="email" type="email" placeholder="your@email.com" required className="mt-1.5 h-12 rounded-xl" />
+                          <Input id="email" name="email" type="email" placeholder="your@email.com" required className="mt-1.5 h-12 rounded-xl" />
                         </div>
                       </div>
 
@@ -88,21 +116,21 @@ const Booking = () => {
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
                             <Label htmlFor="pickup" className="text-foreground">Pickup Location *</Label>
-                            <Input id="pickup" placeholder="Enter pickup address" required className="mt-1.5 h-12 rounded-xl" />
+                            <Input id="pickup" name="pickup" placeholder="Enter pickup address" required className="mt-1.5 h-12 rounded-xl" />
                           </div>
                           <div>
                             <Label htmlFor="destination" className="text-foreground">Destination *</Label>
-                            <Input id="destination" placeholder="Enter destination" required className="mt-1.5 h-12 rounded-xl" />
+                            <Input id="destination" name="destination" placeholder="Enter destination" required className="mt-1.5 h-12 rounded-xl" />
                           </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
                             <Label htmlFor="date" className="text-foreground">Date *</Label>
-                            <Input id="date" type="date" required className="mt-1.5 h-12 rounded-xl" />
+                            <Input id="date" name="date" type="date" required className="mt-1.5 h-12 rounded-xl" />
                           </div>
                           <div>
                             <Label htmlFor="time" className="text-foreground">Time *</Label>
-                            <Input id="time" type="time" required className="mt-1.5 h-12 rounded-xl" />
+                            <Input id="time" name="time" type="time" required className="mt-1.5 h-12 rounded-xl" />
                           </div>
                         </div>
                       </div>
@@ -178,8 +206,8 @@ const Booking = () => {
                         <Textarea id="notes" placeholder="Any special requirements or instructions..." rows={4} className="rounded-xl" />
                       </div>
 
-                      <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent-dark text-accent-foreground font-bold rounded-xl h-14 transition-all duration-300 hover:-translate-y-0.5 shadow-gold">
-                        Submit Booking Request
+                      <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-accent hover:bg-accent-dark text-accent-foreground font-bold rounded-xl h-14 transition-all duration-300 hover:-translate-y-0.5 shadow-gold">
+                        {isSubmitting ? 'Saving Request…' : 'Submit Booking Request'}
                         <ArrowRight className="h-5 w-5 ml-2" />
                       </Button>
                     </form>
