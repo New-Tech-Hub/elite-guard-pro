@@ -27,19 +27,19 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-2 border-accent ${
       scrolled
-        ? 'bg-background/95 backdrop-blur-lg border-b border-border shadow-sm'
-        : 'bg-transparent border-b border-transparent'
+        ? 'bg-primary/95 backdrop-blur-lg shadow-sm'
+        : 'bg-primary/85 backdrop-blur-md'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img src={logo} alt="1145 Allied Protections" className="h-12 w-12 rounded-xl object-cover shadow-sm group-hover:shadow-md transition-shadow" />
+            <img src={logo} alt="1145 Allied Protections" className="h-12 w-12 rounded-sm object-cover shadow-sm group-hover:shadow-md transition-shadow" />
             <div className="flex flex-col">
-              <span className={`text-lg font-heading font-bold leading-tight transition-colors ${scrolled ? 'text-primary' : 'text-primary-foreground'}`}>1145 Allied</span>
-              <span className="text-xs text-accent font-semibold tracking-wider">PROTECTIONS LTD</span>
+              <span className="text-xl font-heading font-bold leading-tight text-primary-foreground">1145 ALLIED</span>
+              <span className="text-xs text-steel font-semibold tracking-wider">PROTECTIONS LTD</span>
             </div>
           </Link>
 
@@ -51,10 +51,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
                   isActive(link.path)
-                    ? 'text-accent bg-accent/10 font-semibold'
-                    : scrolled
-                      ? 'text-foreground hover:text-accent hover:bg-accent/5'
-                      : 'text-primary-foreground/90 hover:text-accent hover:bg-primary-foreground/5'
+                    ? 'text-primary-foreground bg-accent/80 font-semibold'
+                    : 'text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10'
                 }`}
               >
                 {link.name}
@@ -69,8 +67,8 @@ const Navbar = () => {
                 <Phone className="h-4 w-4 text-accent" />
               </div>
               <div className="flex flex-col">
-                <span className={`text-xs ${scrolled ? 'text-muted-foreground' : 'text-primary-foreground/60'}`}>Emergency</span>
-                <span className="font-semibold text-accent text-sm">+234 801 234 5678</span>
+                 <span className="text-xs text-steel">Emergency</span>
+                 <span className="font-semibold text-primary-foreground text-sm">+234 801 234 5678</span>
               </div>
             </a>
             <Link to="/booking">
@@ -83,7 +81,7 @@ const Navbar = () => {
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" className={scrolled ? 'text-foreground' : 'text-primary-foreground'}>
+              <Button variant="ghost" size="icon" className="text-primary-foreground hover:text-primary-foreground hover:bg-primary-foreground/10" aria-label="Open menu">
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>

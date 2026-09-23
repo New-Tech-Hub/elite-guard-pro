@@ -63,7 +63,7 @@ const HeroSlider = () => {
   }, [nextSlide]);
 
   return (
-    <section className="relative pt-20 min-h-[92vh] flex items-center overflow-hidden">
+    <section className="relative pt-24 min-h-[680px] h-[min(800px,90svh)] max-sm:h-auto max-sm:min-h-[740px] flex items-center overflow-hidden on-dark bg-primary">
       {/* Background slides */}
       {slides.map((slide, index) => (
         <div
@@ -74,19 +74,17 @@ const HeroSlider = () => {
           <img
             src={slide.image}
             alt={slide.heading}
-            className="w-full h-full object-cover transition-transform duration-[8000ms] ease-out"
+             className="w-full h-full object-cover object-center transition-transform duration-[8000ms] ease-out"
             style={{
               transform: currentSlide === index ? 'scale(1.08)' : 'scale(1)',
             }}
           />
-          {/* Stronger overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-primary/30" />
+           <div className="absolute inset-0 hero-shade" />
         </div>
       ))}
 
       {/* Content */}
-      <div className="container mx-auto px-4 z-10 relative">
+      <div className="container mx-auto px-4 z-10 relative py-20 max-sm:pt-16 max-sm:pb-24">
         <div className="max-w-3xl">
           {slides.map((slide, index) => (
             <div
@@ -99,10 +97,11 @@ const HeroSlider = () => {
                 pointerEvents: currentSlide === index ? 'auto' : 'none',
               }}
             >
-              <div className="inline-block mb-5 px-5 py-2.5 glass rounded-full">
-                <span className="text-accent font-semibold text-sm tracking-wide">{slide.badge}</span>
+               <div className="inline-flex items-center gap-3 mb-6">
+                 <span className="h-7 w-1 brand-rail" aria-hidden="true" />
+                 <span className="brand-accent font-semibold text-xs sm:text-sm uppercase tracking-widest">{slide.badge}</span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-heading font-bold text-primary-foreground mb-6 leading-[1.1]">
+               <h1 className="text-5xl sm:text-6xl md:text-7xl font-heading font-bold text-primary-foreground mb-6 leading-[1.05] uppercase">
                 {slide.heading}{' '}
                 <span className="text-gradient">{slide.highlight}</span>
               </h1>
@@ -113,27 +112,27 @@ const HeroSlider = () => {
           ))}
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 items-stretch relative z-20">
-            <Link to="/booking" className="sm:flex-initial">
+           <div className="flex flex-col md:flex-row gap-3 items-stretch relative z-20">
+             <Link to="/booking" className="md:flex-initial">
               <Button
                 size="lg"
-                className="bg-accent hover:bg-accent-dark text-accent-foreground font-bold px-8 h-14 text-base rounded-xl shadow-gold hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 w-full pulse-glow"
+                 className="bg-accent hover:bg-accent-dark text-accent-foreground font-bold px-6 h-14 text-base rounded-md shadow-gold hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 w-full"
               >
                 Book Escort Now
               </Button>
             </Link>
-            <Link to="/contact" className="sm:flex-initial">
+             <Link to="/contact" className="md:flex-initial">
               <Button
                 size="lg"
-                className="bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground font-semibold px-8 h-14 text-base rounded-xl border border-primary-foreground/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 w-full"
+                 className="bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground font-semibold px-6 h-14 text-base rounded-md border border-steel/70 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 w-full"
               >
                 Request Consultation
               </Button>
             </Link>
-            <a href="tel:+2348012345678" className="sm:flex-initial">
+             <a href="tel:+2348012345678" className="md:flex-initial">
               <Button
                 size="lg"
-                className="bg-primary-foreground hover:bg-primary-foreground/90 text-primary font-semibold px-8 h-14 text-base rounded-xl transition-all duration-300 hover:-translate-y-0.5 w-full"
+                 className="bg-primary-foreground hover:bg-primary-foreground/90 text-primary font-semibold px-6 h-14 text-base rounded-md transition-all duration-300 hover:-translate-y-0.5 w-full"
               >
                 <Phone className="h-5 w-5 mr-2" />
                 Call Now
@@ -146,21 +145,21 @@ const HeroSlider = () => {
       {/* Navigation arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full glass flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300 group"
+         className="absolute left-4 md:left-8 bottom-5 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-20 w-11 h-11 rounded-full glass flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300 group"
         aria-label="Previous slide"
       >
         <ChevronLeft className="h-6 w-6 group-hover:-translate-x-0.5 transition-transform" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full glass flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300 group"
+         className="absolute right-4 md:right-8 bottom-5 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-20 w-11 h-11 rounded-full glass flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300 group"
         aria-label="Next slide"
       >
         <ChevronRight className="h-6 w-6 group-hover:translate-x-0.5 transition-transform" />
       </button>
 
       {/* Slide indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+       <div className="absolute bottom-9 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -175,8 +174,6 @@ const HeroSlider = () => {
         ))}
       </div>
 
-      {/* Decorative bottom edge */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
     </section>
   );
 };

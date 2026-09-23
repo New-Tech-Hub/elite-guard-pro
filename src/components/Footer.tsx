@@ -4,16 +4,16 @@ import logo from '@/assets/logo.jpeg';
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-primary text-primary-foreground border-t-4 border-accent">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <img src={logo} alt="1145 Allied Protections" className="h-12 w-12 rounded-xl object-cover" />
+               <img src={logo} alt="1145 Allied Protections" className="h-12 w-12 rounded-sm object-cover" />
               <div className="flex flex-col">
                 <span className="text-lg font-heading font-bold">1145 Allied</span>
-                <span className="text-xs text-accent font-semibold tracking-wider">PROTECTIONS LTD</span>
+                 <span className="text-xs text-steel font-semibold tracking-wider">PROTECTIONS LTD</span>
               </div>
             </div>
             <p className="text-sm text-primary-foreground/70 mb-6 leading-relaxed">
