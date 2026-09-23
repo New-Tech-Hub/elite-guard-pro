@@ -166,7 +166,7 @@ const Index = () => {
                 alt="Professional Security Team"
                 className="rounded-2xl shadow-luxury"
               />
-              <div className="relative mt-4 md:absolute md:-bottom-6 md:-right-6 bg-accent p-6 rounded-md shadow-gold max-w-xs">
+              <div className="relative mt-4 md:absolute md:-bottom-6 md:right-0 bg-accent p-6 rounded-md shadow-gold max-w-xs">
                 <p className="text-accent-foreground font-semibold text-lg font-heading leading-snug">
                   "Protection with precision, delivered with discretion"
                 </p>

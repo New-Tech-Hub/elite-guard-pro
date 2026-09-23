@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Phone } from 'lucide-react';
-import logo from '@/assets/allied-shield.jpeg.asset.json';
+import logo from '@/assets/shield-logo.webp.asset.json';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +36,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img src={logo.url} alt="1145 Allied Protections shield" className="h-12 w-12 rounded-sm object-cover shadow-sm group-hover:shadow-md transition-shadow" />
+            <img src={logo.url} alt="1145 Allied Protections shield" className="h-12 w-12 rounded-sm object-contain bg-primary-foreground shadow-sm group-hover:shadow-md transition-shadow" />
             <div className="flex flex-col">
               <span className="text-xl font-heading font-bold leading-tight text-primary-foreground">1145 ALLIED</span>
               <span className="text-xs text-steel font-semibold tracking-wider">PROTECTIONS LTD</span>
