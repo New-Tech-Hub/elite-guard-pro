@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Playfair Display"', 'serif'],
+        heading: ['"Barlow Condensed"', 'sans-serif'],
         body: ['"DM Sans"', 'sans-serif'],
       },
       colors: {
@@ -44,6 +44,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
           dark: "hsl(var(--accent-dark))",
+        },
+        steel: {
+          DEFAULT: "hsl(var(--steel))",
+          foreground: "hsl(var(--steel-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",

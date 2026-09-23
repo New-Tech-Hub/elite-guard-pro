@@ -47,12 +47,9 @@ const Pricing = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-24 bg-gradient-to-br from-primary via-primary-glow to-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/2 w-96 h-96 bg-accent rounded-full blur-[150px]" />
-        </div>
+      <section className="pt-32 pb-24 bg-primary text-primary-foreground relative overflow-hidden border-b-4 border-accent on-dark">
         <div className="container mx-auto px-4 text-center relative z-10">
-          <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-4">Plans & Pricing</span>
+          <span className="inline-block brand-accent font-semibold text-sm tracking-widest uppercase mb-4">Plans & Pricing</span>
           <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 leading-tight">
             Transparent <span className="text-gradient">Pricing</span>
           </h1>
@@ -83,8 +80,8 @@ const Pricing = () => {
                 <CardHeader className="text-center pb-8 pt-8">
                   <CardTitle className="text-2xl font-heading font-bold text-primary mb-2">{tier.name}</CardTitle>
                   <p className="text-sm text-muted-foreground mb-5">{tier.description}</p>
-                  <div className="flex items-baseline justify-center gap-2">
-                    <span className="text-4xl font-heading font-bold text-gradient">{tier.price}</span>
+                   <div className="flex flex-wrap items-baseline justify-center gap-2">
+                     <span className="text-4xl font-heading font-bold text-gradient">{tier.price}</span>
                     <span className="text-muted-foreground">/ {tier.period}</span>
                   </div>
                 </CardHeader>

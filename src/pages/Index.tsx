@@ -166,9 +166,9 @@ const Index = () => {
                 alt="Professional Security Team"
                 className="rounded-2xl shadow-luxury"
               />
-              <div className="absolute -bottom-6 -right-6 bg-accent p-6 rounded-2xl shadow-gold max-w-xs">
+              <div className="relative mt-4 md:absolute md:-bottom-6 md:right-0 bg-accent p-6 rounded-md shadow-gold max-w-xs">
                 <p className="text-accent-foreground font-semibold text-lg font-heading leading-snug">
-                  "Trusted by Nigeria's top executives and international dignitaries"
+                  "Protection with precision, delivered with discretion"
                 </p>
                 <p className="text-accent-foreground/50 text-xs mt-2 font-body">RC: 9231838</p>
               </div>
@@ -212,11 +212,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-primary via-primary-glow to-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-accent rounded-full blur-[120px]" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent rounded-full blur-[150px]" />
-        </div>
+      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden border-t-4 border-accent">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
             Ready to Experience Elite Protection?

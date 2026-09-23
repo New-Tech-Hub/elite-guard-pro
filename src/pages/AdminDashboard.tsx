@@ -46,10 +46,7 @@ const AdminDashboard = () => {
     <div className="min-h-screen" ref={scrollRef}>
       <Navbar />
 
-      <section className="pt-32 pb-12 bg-gradient-to-br from-primary via-primary-glow to-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-accent rounded-full blur-[150px]" />
-        </div>
+      <section className="pt-32 pb-12 bg-primary text-primary-foreground relative overflow-hidden border-b-4 border-accent on-dark">
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 bg-accent/15 rounded-2xl flex items-center justify-center">
