@@ -15,7 +15,7 @@ const NotFound = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-primary via-primary-glow to-primary text-primary-foreground relative overflow-hidden">
+      <div className="flex-1 flex items-center justify-center bg-primary text-primary-foreground relative overflow-hidden border-b-4 border-accent on-dark">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-72 h-72 bg-accent rounded-full blur-[120px]" />
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent rounded-full blur-[150px]" />

@@ -29,12 +29,9 @@ const Contact = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-24 bg-gradient-to-br from-primary via-primary-glow to-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-accent rounded-full blur-[150px]" />
-        </div>
+      <section className="pt-32 pb-24 bg-primary text-primary-foreground relative overflow-hidden border-b-4 border-accent on-dark">
         <div className="container mx-auto px-4 text-center relative z-10">
-          <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-4">Reach Out</span>
+          <span className="inline-block brand-accent font-semibold text-sm tracking-widest uppercase mb-4">Reach Out</span>
           <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6 leading-tight">
             Get In <span className="text-gradient">Touch</span>
           </h1>
