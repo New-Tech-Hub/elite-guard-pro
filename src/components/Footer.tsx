@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowUpRight } from 'lucide-react';
-import logo from '@/assets/logo.jpeg';
+import logo from '@/assets/allied-shield.jpeg.asset.json';
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-               <img src={logo} alt="1145 Allied Protections" className="h-12 w-12 rounded-sm object-cover" />
+               <img src={logo.url} alt="1145 Allied Protections shield" className="h-12 w-12 rounded-sm object-cover" />
               <div className="flex flex-col">
                 <span className="text-lg font-heading font-bold">1145 Allied</span>
                  <span className="text-xs text-steel font-semibold tracking-wider">PROTECTIONS LTD</span>
