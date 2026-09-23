@@ -119,7 +119,7 @@ const TourGuide = () => {
                 <CardContent className="p-7">
                   <h3 className="text-lg font-heading font-semibold text-primary mb-4">Security & Safety</h3>
                   <ul className="space-y-2.5 text-sm text-muted-foreground">
-                    {['Armed security escorts throughout tour', 'Risk assessment of all locations', 'Emergency response protocols', 'Secure transportation', 'Communication equipment'].map((item, i) => (
+                    {['Armed security escorts throughout tour', 'Advance safety checks of all locations', 'Emergency response protocols', 'Secure transportation', 'Communication equipment'].map((item, i) => (
                       <li key={i} className="flex items-center gap-2.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
                         {item}

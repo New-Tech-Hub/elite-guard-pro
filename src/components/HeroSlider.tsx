@@ -39,10 +39,10 @@ const slides = [
   },
   {
     image: heroTeam5.url,
-    badge: 'Elite Operational Standards',
+    badge: 'Certified Professional Standards',
     heading: 'Armed & Unarmed',
     highlight: 'Security Details',
-    description: 'From residential details to full movement security, our officers deliver military-grade discipline with corporate professionalism.',
+    description: 'From residential details to full movement security, our officers deliver disciplined, courteous service with complete corporate professionalism.',
   },
 ];
 

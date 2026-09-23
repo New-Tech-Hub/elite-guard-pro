@@ -97,7 +97,7 @@ const Index = () => {
               Our Premium Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Comprehensive security solutions tailored to your needs with military-grade protection
+              Comprehensive security solutions tailored to your needs, delivered with professionalism and discretion
             </p>
           </div>
 
@@ -137,9 +137,9 @@ const Index = () => {
               <div className="space-y-5">
                 {[
                   'Highly trained and certified security professionals',
-                  'Military-grade protection protocols',
+                  'Licensed, thoroughly vetted protection officers',
                   '24/7 emergency response team',
-                  'Armored vehicles and advanced security equipment',
+                  'Modern secure vehicles and professional equipment',
                   'Discreet and professional service',
                   'Licensed and insured operations',
                 ].map((feature, index) => (
@@ -215,7 +215,7 @@ const Index = () => {
       <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden border-t-4 border-accent">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-            Ready to Experience Elite Protection?
+            Ready to Experience Premium Protection?
           </h2>
           <p className="text-xl text-primary-foreground/85 mb-10 max-w-2xl mx-auto leading-relaxed">
             Book your VIP escort service now and travel with confidence across Nigeria
