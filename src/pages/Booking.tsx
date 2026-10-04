@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+
+const db = supabase as unknown as { from: (table: string) => any };
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -37,7 +39,7 @@ const Booking = () => {
     setIsSubmitting(true);
     const formData = new FormData(e.currentTarget);
     const { data: { user } } = await supabase.auth.getUser();
-    const { error } = await supabase.from('bookings').insert({
+    const { error } = await db.from('bookings').insert({
       user_id: user?.id ?? null,
       full_name: String(formData.get('fullName') ?? ''),
       phone: String(formData.get('phone') ?? ''),

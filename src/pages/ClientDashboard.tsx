@@ -8,9 +8,10 @@ import { Button } from '@/components/ui/button';
 import { Shield, Calendar, MapPin, User, Download, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
-import type { Tables } from '@/integrations/supabase/types';
-
-type Booking = Tables<'bookings'>;
+type Booking = {
+  id: string; service_type: string; booking_date: string; booking_time: string; pickup_location: string; destination: string; status: string; officers: number; payment_status: string; assigned_officers: unknown[];
+};
+const db = supabase as unknown as { from: (table: string) => any; channel: typeof supabase.channel; removeChannel: typeof supabase.removeChannel };
 
 const ClientDashboard = () => {
   const scrollRef = useScrollAnimation();
@@ -22,7 +23,7 @@ const ClientDashboard = () => {
     const loadBookings = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) { setLoading(false); return; }
-      const { data, error } = await supabase.from('bookings').select('*').eq('user_id', user.id).order('created_at', { ascending: false });
+      const { data, error } = await db.from('bookings').select('*').eq('user_id', user.id).order('created_at', { ascending: false });
       if (error) toast.error('Bookings could not be loaded.');
       else setBookings(data ?? []);
       channel = supabase.channel(`client-bookings-${user.id}`).on('postgres_changes', { event: '*', schema: 'public', table: 'bookings', filter: `user_id=eq.${user.id}` }, (payload) => {
@@ -31,7 +32,7 @@ const ClientDashboard = () => {
       }).subscribe();
     };
     void loadBookings();
-    return () => { if (channel) void supabase.removeChannel(channel); };
+    return () => { if (channel) void db.removeChannel(channel); };
   }, []);
 
   const getStatusVariant = (status: string) => status === 'confirmed' ? 'bg-accent/15 text-accent border border-accent/30' : status === 'completed' ? 'bg-primary/10 text-primary border border-primary/20' : 'bg-muted text-muted-foreground border border-border';
