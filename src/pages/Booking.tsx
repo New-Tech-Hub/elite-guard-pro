@@ -261,7 +261,7 @@ const Booking = () => {
                     <div className="pt-4 border-t-2 border-accent/30">
                       <div className="flex justify-between items-center">
                         <span className="text-lg font-semibold text-foreground">Estimated Total:</span>
-                        <span className="text-2xl font-heading font-bold text-gradient">₦{calculatePrice()}</span>
+                        <span className="text-2xl font-heading font-bold text-gradient">₦{calculateTotal().toLocaleString('en-NG')}</span>
                       </div>
                       <p className="text-xs text-muted-foreground mt-2">* Final price may vary based on specific requirements</p>
                     </div>
