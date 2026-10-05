@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Shield, Users, Calendar, DollarSign, Car, UserCheck } from 'lucide-react';
+import { Shield, Users, Calendar, DollarSign, Car, UserCheck, LogOut } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface LiveBooking {
@@ -70,9 +70,12 @@ const AdminDashboard = () => {
     if (error) toast.error('Assignment could not be saved.');
     else toast.success('Booking assigned and confirmed.');
   };
+  const signOut = async () => {
+    await supabase.auth.signOut();
+  };
 
   return <div className="min-h-screen" ref={scrollRef}><Navbar />
-    <section className="pt-32 pb-12 bg-primary text-primary-foreground border-b-4 border-accent on-dark"><div className="container mx-auto px-4"><div className="flex items-center gap-4"><div className="w-14 h-14 bg-accent/15 rounded-2xl flex items-center justify-center"><Shield className="h-7 w-7 text-accent" /></div><div><h1 className="text-4xl font-heading font-bold">Admin Dashboard</h1><p className="text-primary-foreground/75">Live booking records and assignment controls.</p></div></div></div></section>
+    <section className="pt-32 pb-12 bg-primary text-primary-foreground border-b-4 border-accent on-dark"><div className="container mx-auto px-4"><div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6"><div className="flex items-center gap-4"><div className="w-14 h-14 bg-accent/15 rounded-2xl flex items-center justify-center"><Shield className="h-7 w-7 text-accent" /></div><div><h1 className="text-4xl font-heading font-bold">Admin Dashboard</h1><p className="text-primary-foreground/75">Live booking records and assignment controls.</p></div></div><Button variant="outline" onClick={() => void signOut()} className="w-full sm:w-auto border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><LogOut className="mr-2 h-4 w-4" />Sign out</Button></div></div></section>
     <section className="py-12"><div className="container mx-auto px-4">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">{stats.map((stat) => <Card key={stat.label} className="border border-border card-interactive"><CardContent className="p-6"><div className="flex items-center justify-between"><div><p className="text-sm text-muted-foreground mb-1">{stat.label}</p><p className="text-3xl font-heading font-bold text-primary">{stat.value}</p></div><div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center"><stat.icon className="h-6 w-6 text-accent" /></div></div></CardContent></Card>)}</div>
       <Tabs defaultValue="bookings" className="space-y-6"><TabsList className="bg-muted/50 border border-border rounded-xl p-1 h-auto"><TabsTrigger value="bookings" className="rounded-lg px-5 py-2.5">Bookings</TabsTrigger><TabsTrigger value="officers" className="rounded-lg px-5 py-2.5">Officers</TabsTrigger><TabsTrigger value="vehicles" className="rounded-lg px-5 py-2.5">Vehicles</TabsTrigger></TabsList>
