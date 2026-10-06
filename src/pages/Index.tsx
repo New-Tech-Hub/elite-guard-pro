@@ -5,65 +5,26 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import HeroSlider from '@/components/HeroSlider';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Shield, Plane, MapPin, Car, Users, Star, CheckCircle, Clock, Award, ArrowRight } from 'lucide-react';
+import { Shield, Building, ClipboardCheck, Car, Users, CheckCircle, Clock, Award, ArrowRight } from 'lucide-react';
 import heroTeam2 from '@/assets/hero-team-2.jpeg.asset.json';
 
 const Index = () => {
   const scrollRef = useScrollAnimation();
 
   const services = [
-    {
-      icon: Shield,
-      title: 'VIP Escort Services',
-      description: 'Professional armed and unarmed escorts for high-profile individuals and executives.',
-      link: '/services',
-    },
-    {
-      icon: Plane,
-      title: 'Airport Pickup & Drop-off',
-      description: 'Secure airport transfers with meet-and-greet services for international and domestic travelers.',
-      link: '/airport-pickup',
-    },
-    {
-      icon: MapPin,
-      title: 'Tour Guide Protection',
-      description: 'Safe tourism experiences with trained security personnel and local guides.',
-      link: '/tour-guide',
-    },
-    {
-      icon: Car,
-      title: 'Convoy & Armored Transport',
-      description: 'Secure vehicle convoys and armored transportation for maximum safety.',
-      link: '/services',
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: 'Chief Adebayo M.',
-      role: 'Business Executive',
-      rating: 5,
-      text: '1145 Allied Protections provided exceptional security during my recent trip to Lagos. Professional, discreet, and highly reliable.',
-    },
-    {
-      name: 'Ambassador Williams',
-      role: 'Diplomat',
-      rating: 5,
-      text: 'Outstanding service! Their team made me feel completely safe throughout my visit. Highly recommend for VIP protection.',
-    },
-    {
-      name: 'Dr. Sarah Johnson',
-      role: 'International Consultant',
-      rating: 5,
-      text: 'The airport pickup service was seamless. My security escort was professional and the vehicle was immaculate.',
-    },
+    { icon: Shield, title: 'Executive Protection', description: 'Professional personal protection delivered with discipline and discretion.', link: '/services' },
+    { icon: Building, title: 'Site & Asset Protection', description: 'Security solutions focused on safeguarding your premises and assets.', link: '/services' },
+    { icon: Users, title: 'Event Security', description: 'Professional protection for corporate events, private functions, and gatherings.', link: '/services' },
+    { icon: Car, title: 'Secure Transport', description: 'Discreet protection and coordinated security for your journeys.', link: '/services' },
+    { icon: ClipboardCheck, title: 'Risk Assessment', description: 'Security and risk management planning tailored to your needs.', link: '/services' },
+    { icon: Clock, title: '24/7 Support', description: 'Round-the-clock support for your security needs and peace of mind.', link: '/contact' },
   ];
 
   const stats = [
-    { icon: Users, value: '500+', label: 'Clients Protected' },
-    { icon: Clock, value: '24/7', label: 'Available Support' },
-    { icon: Award, value: '10+', label: 'Years Experience' },
-    { icon: Star, value: '5.0', label: 'Client Rating' },
+    { icon: Shield, value: 'Vigilant', label: 'Protecting what matters most' },
+    { icon: Users, value: 'Reliable', label: 'Discipline and discretion' },
+    { icon: Award, value: 'Professional', label: 'Security and risk management' },
+    { icon: Clock, value: 'Committed', label: '24/7 Support' },
   ];
 
   return (
@@ -101,7 +62,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children animate-on-scroll">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children animate-on-scroll">
             {services.map((service, index) => (
               <Card key={index} className="border border-border hover:border-accent/50 card-interactive group bg-card overflow-hidden">
                 <CardContent className="p-7">
@@ -168,7 +129,7 @@ const Index = () => {
               />
               <div className="relative mt-4 md:absolute md:-bottom-6 md:right-0 bg-accent p-6 rounded-md shadow-gold max-w-xs">
                 <p className="text-accent-foreground font-semibold text-lg font-heading leading-snug">
-                  "Protection with precision, delivered with discretion"
+                  "Protecting what matters most"
                 </p>
                 <p className="text-accent-foreground/50 text-xs mt-2 font-body">RC: 9231838</p>
               </div>
@@ -177,37 +138,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-on-scroll">
-            <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-3">Testimonials</span>
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-5">
-              Client Testimonials
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Hear from our satisfied clients about their experience with 1145 Allied Protections
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 stagger-children animate-on-scroll">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border border-border card-interactive bg-card">
-                <CardContent className="p-7">
-                  <div className="flex gap-1 mb-5">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-accent text-accent" />
-                    ))}
-                  </div>
-                  <p className="text-foreground mb-6 italic leading-relaxed">"{testimonial.text}"</p>
-                  <div className="pt-5 border-t border-border">
-                    <p className="font-heading font-semibold text-primary">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      <section className="py-20 border-y border-border">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm uppercase font-semibold text-accent mb-4">1145 Allied Protections</p>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary">Standing guard. Securing peace.</h2>
+          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">A trusted provider of professional security and risk management solutions. We operate with discipline, discretion, and maximum efficiency to ensure your safety and peace of mind.</p>
         </div>
       </section>
 

@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Shield, Plane, MapPin, Car, Users, Building, CheckCircle, ArrowRight } from 'lucide-react';
+import { Shield, Plane, MapPin, Car, Users, Building, ClipboardCheck, Headphones, CheckCircle, ArrowRight } from 'lucide-react';
 
 const Services = () => {
   const scrollRef = useScrollAnimation();
@@ -29,7 +29,7 @@ const Services = () => {
       price: 'From ₦100,000/day', link: '/tour-guide',
     },
     {
-      icon: Car, title: 'Convoy & Armored Transport',
+      icon: Car, title: 'Secure Transport',
       description: 'Secure vehicle convoys and armored transportation for maximum safety during travel.',
       features: ['Armored vehicle fleet', 'Multi-vehicle convoy coordination', 'Route surveillance and monitoring', 'Communication systems', 'Professional escort teams', 'Emergency response planning'],
       price: 'Custom pricing', link: '/booking',
@@ -46,6 +46,24 @@ const Services = () => {
       features: ['Personal security detail', 'Residential security', 'Office/workplace protection', 'Travel security coordination', 'Ongoing security advisory', 'Long-term security contracts'],
       price: 'Custom pricing', link: '/booking',
     },
+    {
+      icon: Building, title: 'Site & Asset Protection',
+      description: 'Professional security solutions to safeguard your premises and assets.',
+      features: ['Site security planning', 'Asset protection', 'Access management', 'Discreet, professional service'],
+      price: 'Request a quote', link: '/contact',
+    },
+    {
+      icon: ClipboardCheck, title: 'Risk Assessment',
+      description: 'Security and risk management assessments tailored to your protection needs.',
+      features: ['Security needs review', 'Risk assessment', 'Protection planning', 'Professional recommendations'],
+      price: 'Request a consultation', link: '/contact',
+    },
+    {
+      icon: Headphones, title: '24/7 Support',
+      description: 'Round-the-clock support for your safety and peace of mind.',
+      features: ['24/7 availability', 'Security enquiries', 'Protection coordination', 'Call +234 809 094 2939'],
+      price: 'Contact our team', link: '/contact',
+    },
   ];
 
   return (
@@ -61,7 +79,7 @@ const Services = () => {
               Our <span className="text-gradient">Security Services</span>
             </h1>
             <p className="text-xl text-primary-foreground/85 leading-relaxed">
-              Comprehensive VIP protection and escort services tailored to your specific security needs across Nigeria.
+              Professional security and risk management solutions: executive protection, site and asset protection, event security, secure transport, risk assessment, and 24/7 support.
             </p>
           </div>
         </div>
@@ -93,7 +111,7 @@ const Services = () => {
                     <p className="text-accent font-bold text-lg mb-4 font-heading">{service.price}</p>
                     <Link to={service.link}>
                       <Button className="w-full bg-primary hover:bg-primary-glow text-primary-foreground rounded-xl font-semibold group/btn transition-all duration-300">
-                        Book This Service
+                        Discuss This Service
                         <ArrowRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                       </Button>
                     </Link>
@@ -109,15 +127,15 @@ const Services = () => {
       <section className="py-24 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center animate-on-scroll">
-            <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-3">Our Numbers</span>
+            <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-3">Our Commitment</span>
             <h2 className="text-4xl font-heading font-bold text-primary mb-12">
               Why Choose 1145 Allied Protections?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                { value: '500+', label: 'Successful Missions', sub: 'VIP escort operations completed' },
-                { value: '24/7', label: 'Emergency Response', sub: 'Round-the-clock availability' },
-                { value: '100%', label: 'Client Satisfaction', sub: 'Zero security breach record' },
+                { value: 'Vigilant', label: 'Protecting What Matters Most', sub: 'Professional security and risk management' },
+                { value: '24/7', label: 'Support', sub: 'Round-the-clock availability' },
+                { value: 'Committed', label: 'Standing Guard. Securing Peace.', sub: 'Discipline, discretion, and maximum efficiency' },
               ].map((stat, i) => (
                 <div key={i} className="group">
                   <div className="text-5xl font-heading font-bold text-gradient mb-2">{stat.value}</div>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MessageCircle, X, Phone } from 'lucide-react';
+import { MessageCircle, Instagram, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const FloatingCTA = () => {
@@ -16,20 +16,20 @@ const FloatingCTA = () => {
             </Button>
           </div>
           <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
-            Chat with us on WhatsApp or call our emergency hotline for immediate assistance.
+            Connect with us on Instagram or call for immediate assistance.
           </p>
           <div className="space-y-2">
             <a
-              href="https://wa.me/2348012345678?text=Hello%2C%20I%20need%20security%20services"
+              href="https://www.instagram.com/alliedby1145/"
               target="_blank"
               rel="noopener noreferrer"
                className="flex items-center gap-3 w-full p-3 rounded-md bg-accent hover:bg-accent-dark text-accent-foreground font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5"
             >
-              <MessageCircle className="h-5 w-5" />
-              Chat on WhatsApp
+              <Instagram className="h-5 w-5" />
+              Instagram @alliedby1145
             </a>
             <a
-              href="tel:+2348012345678"
+              href="tel:+2348090942939"
                className="flex items-center gap-3 w-full p-3 rounded-md bg-primary hover:bg-primary-glow text-primary-foreground font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5"
             >
               <Phone className="h-5 w-5" />

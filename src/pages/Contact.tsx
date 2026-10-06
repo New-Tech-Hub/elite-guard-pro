@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { Phone, Instagram, Shield, Clock, Send } from 'lucide-react';
 import { toast } from 'sonner';
 
 const Contact = () => {
@@ -18,10 +18,10 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: Phone, title: 'Emergency Hotline', details: ['+234 801 234 5678', '24/7 Available'] },
-    { icon: Mail, title: 'Email Us', details: ['info@1145alliedprotections.ng', 'support@1145alliedprotections.ng'] },
-    { icon: MapPin, title: 'Office Location', details: ['Plot 123, Victoria Island', 'Lagos, Nigeria'] },
-    { icon: Clock, title: 'Office Hours', details: ['Mon - Fri: 8AM - 6PM', 'Sat: 9AM - 2PM'] },
+    { icon: Phone, title: 'Emergency Hotline', details: ['+234 809 094 2939', '24/7 Available'], href: 'tel:+2348090942939' },
+    { icon: Instagram, title: 'Instagram', details: ['@alliedby1145'], href: 'https://www.instagram.com/alliedby1145/' },
+    { icon: Shield, title: 'Our Commitment', details: ['Standing guard.', 'Securing peace.'] },
+    { icon: Clock, title: 'Support', details: ['24/7 Support', 'Protecting what matters most'] },
   ];
 
   return (
@@ -53,7 +53,7 @@ const Contact = () => {
                   </div>
                   <h3 className="text-lg font-heading font-semibold text-primary mb-2">{info.title}</h3>
                   {info.details.map((detail, idx) => (
-                    <p key={idx} className="text-sm text-muted-foreground">{detail}</p>
+                    <p key={idx} className="text-sm text-muted-foreground">{info.href && idx === 0 ? <a href={info.href} className="hover:text-accent transition-colors" target={info.href.startsWith('https') ? '_blank' : undefined} rel={info.href.startsWith('https') ? 'noopener noreferrer' : undefined}>{detail}</a> : detail}</p>
                   ))}
                 </CardContent>
               </Card>
@@ -85,8 +85,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">24/7 Hotline</p>
-                        <a href="tel:+2348012345678" className="text-xl font-heading font-bold text-accent">
-                          +234 801 234 5678
+                        <a href="tel:+2348090942939" className="text-xl font-heading font-bold text-accent">
+                          +234 809 094 2939
                         </a>
                       </div>
                     </div>
@@ -125,24 +125,6 @@ const Contact = () => {
                   </form>
                 </CardContent>
               </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map */}
-      <section className="py-24 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center animate-on-scroll">
-            <h2 className="text-3xl font-heading font-bold text-primary mb-4">Visit Our Office</h2>
-            <p className="text-lg text-muted-foreground mb-8">Plot 123, Victoria Island, Lagos, Nigeria</p>
-            <div className="bg-card border border-border rounded-2xl h-96 flex items-center justify-center shadow-luxury">
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="h-8 w-8 text-accent" />
-                </div>
-                <p className="text-muted-foreground">Map integration placeholder<br />Contact us for directions</p>
-              </div>
             </div>
           </div>
         </div>

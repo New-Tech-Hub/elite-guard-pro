@@ -11,10 +11,10 @@ import heroTeam5 from '@/assets/hero-team-5.jpeg.asset.json';
 const slides = [
   {
     image: heroTeam1.url,
-    badge: 'Nigeria\'s Premier Security Service',
+    badge: 'Protecting What Matters Most',
     heading: 'Secure VIP Escort Services',
     highlight: 'Across Nigeria',
-    description: 'Professional armed escorts, airport pickups, tour guide protection, and convoy services for high-profile individuals and executives.',
+    description: 'Professional security and risk management solutions, delivered with discipline, discretion, and maximum efficiency for your safety and peace of mind.',
   },
   {
     image: heroTeam2.url,
@@ -39,7 +39,7 @@ const slides = [
   },
   {
     image: heroTeam5.url,
-    badge: 'Certified Professional Standards',
+    badge: 'Vigilant. Reliable. Professional. Committed.',
     heading: 'Armed & Unarmed',
     highlight: 'Security Details',
     description: 'From residential details to full movement security, our officers deliver disciplined, courteous service with complete corporate professionalism.',
@@ -137,7 +137,7 @@ const HeroSlider = () => {
                 Request Consultation
               </Button>
             </Link>
-             <a href="tel:+2348012345678" className="md:flex-initial">
+             <a href="tel:+2348090942939" className="md:flex-initial">
               <Button
                 size="lg"
                  className="bg-primary-foreground hover:bg-primary-foreground/90 text-primary font-semibold px-6 h-14 text-base rounded-md transition-all duration-300 hover:-translate-y-0.5 w-full"
