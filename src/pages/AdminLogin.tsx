@@ -7,7 +7,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import logoAsset from '@/assets/1145-allied-shield.png.asset.json';
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -62,7 +61,7 @@ const AdminLogin = () => {
       <Card className="w-full max-w-md border-primary-foreground/10 shadow-2xl">
         <CardContent className="p-7 sm:p-9">
           <div className="text-center mb-8">
-            <img src={logoAsset.url} alt="1145 Allied Protections shield" className="mx-auto h-24 w-24 object-contain" />
+            <img src="/shield-logo.webp" alt="1145 Allied Protections shield" className="mx-auto h-24 w-24 object-contain" />
             <p className="mt-5 text-xs font-bold uppercase text-accent">Protected operations portal</p>
             <h1 className="mt-2 text-3xl font-heading font-bold text-primary">Administrator sign in</h1>
             <p className="mt-2 text-sm text-muted-foreground">Use your authorized company account to continue.</p>
