@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 import { HelpCircle, ArrowRight } from 'lucide-react';
 
 const faqs = [
-  { q: 'What security services does 1145 Allied Protections provide?', a: 'We arrange professional VIP escorts, airport pickup protection, tourism security and guide support, secure transport, convoy services, and event security across Nigeria.' },
+  { q: 'What security services does 1145 Allied Protections provide?', a: 'Our services include executive protection, site and asset protection, event security, secure transport, risk assessment, and 24/7 support. Airport pickup and tourism security requests can also be discussed with our team.' },
   { q: 'Where do you operate?', a: 'Our booking service is available for protection and secure movement requests across Nigeria. Share your route and requirements so our team can confirm availability.' },
   { q: 'Can I request armed or unarmed officers?', a: 'Yes. Booking requests can specify armed or unarmed officers. Final arrangements are confirmed by our team based on the service, route, timing, and applicable requirements.' },
   { q: 'How far in advance should I book?', a: 'Advance notice helps us prepare the right personnel and vehicle plan. Same-day requests can be submitted, but availability must be confirmed by our operations team.' },
   { q: 'How does the booking price estimate work?', a: 'The estimate considers service type, officer count, duration, and selected additions such as a tour guide, SUV rental, or convoy vehicles. It is an estimate until our team confirms the request.' },
   { q: 'How do I request airport pickup protection?', a: 'Use the airport pickup service page or contact our team with your flight number, arrival time, airport, destination, and passenger details.' },
   { q: 'Will I receive live booking updates?', a: 'Booking requests are recorded in our live operations system. Once your request is reviewed or assigned, the status shown in your client area can reflect the latest update.' },
-  { q: 'How can I reach you for urgent protection?', a: 'For immediate assistance, call +234 801 234 5678. For planned service, submit a booking request or contact info@1145alliedprotections.ng.' },
+  { q: 'How can I reach you for urgent protection?', a: 'For immediate assistance, call +234 809 094 2939. For planned service, submit a booking request or connect with @alliedby1145 on Instagram.' },
 ];
 
 const FAQ = () => (

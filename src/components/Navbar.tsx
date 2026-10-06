@@ -62,13 +62,13 @@ const Navbar = () => {
 
           {/* Emergency Hotline & CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:+2348012345678" className="flex items-center gap-2 text-sm group">
+            <a href="tel:+2348090942939" className="flex items-center gap-2 text-sm group">
               <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
                 <Phone className="h-4 w-4 text-accent" />
               </div>
               <div className="flex flex-col">
                  <span className="text-xs text-steel">Emergency</span>
-                 <span className="font-semibold text-primary-foreground text-sm">+234 801 234 5678</span>
+                 <span className="font-semibold text-primary-foreground text-sm">+234 809 094 2939</span>
               </div>
             </a>
             <Link to="/booking">
@@ -100,13 +100,13 @@ const Navbar = () => {
                   </Link>
                 ))}
                 <div className="pt-6 mt-4 border-t border-border">
-                  <a href="tel:+2348012345678" className="flex items-center gap-3 mb-6 px-4">
+                  <a href="tel:+2348090942939" className="flex items-center gap-3 mb-6 px-4">
                     <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
                       <Phone className="h-5 w-5 text-accent" />
                     </div>
                     <div className="flex flex-col">
                       <span className="text-xs text-muted-foreground">Emergency</span>
-                      <span className="font-semibold text-accent">+234 801 234 5678</span>
+                      <span className="font-semibold text-accent">+234 809 094 2939</span>
                     </div>
                   </a>
                   <Link to="/booking" onClick={() => setIsOpen(false)}>

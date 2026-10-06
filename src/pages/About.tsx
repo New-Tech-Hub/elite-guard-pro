@@ -9,19 +9,15 @@ const About = () => {
   const scrollRef = useScrollAnimation();
 
   const values = [
-    { icon: Shield, title: 'Security First', description: 'Your safety is our top priority. We follow internationally recognized security protocols and modern safety measures.' },
-    { icon: Users, title: 'Professional Team', description: 'Our personnel are highly trained, certified, and experienced in VIP protection services.' },
-    { icon: Award, title: 'Excellence', description: 'We maintain the highest standards of service delivery and operational excellence.' },
-    { icon: Target, title: 'Precision', description: 'Every detail matters. We plan and execute with precision, care, and attention to every detail.' },
+    { icon: Shield, title: 'Vigilant', description: 'Attentive security and proactive risk assessment to protect what matters most.' },
+    { icon: Users, title: 'Reliable', description: 'Dependable protection delivered with discipline and discretion.' },
+    { icon: Award, title: 'Professional', description: 'Professional security and risk management solutions with maximum efficiency.' },
+    { icon: Target, title: 'Committed', description: 'Dedicated to your safety and peace of mind.' },
   ];
 
   const achievements = [
-    '500+ successful VIP escort missions',
-    '10+ years of security excellence',
-    'Zero security breach incidents',
-    'Licensed by Nigerian Security Authorities',
-    'Certified international security standards',
-    '24/7 emergency response capability',
+    'Executive protection', 'Site & asset protection', 'Event security',
+    'Secure transport', 'Risk assessment', '24/7 support',
   ];
 
   return (
@@ -37,7 +33,7 @@ const About = () => {
               About <span className="text-gradient">1145 Allied Protections</span>
             </h1>
             <p className="text-xl text-primary-foreground/85 leading-relaxed">
-              Nigeria's premier VIP escort and security services provider. We combine professional security expertise with polished, first-class service delivery.
+              1145 Allied Protections is a trusted provider of professional security and risk management solutions.
             </p>
           </div>
         </div>
@@ -51,10 +47,10 @@ const About = () => {
               <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-3">Our Purpose</span>
               <h2 className="text-4xl font-heading font-bold text-primary mb-6">Our Mission</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                To provide world-class VIP escort and security services across Nigeria, ensuring the safety and protection of high-profile individuals through professional, discreet, and reliable security solutions.
+                Protecting what matters most. We operate with discipline, discretion, and maximum efficiency to ensure your safety and peace of mind.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                We leverage advanced security technology, highly trained personnel, and strategic intelligence to deliver unmatched protection services.
+                Standing guard. Securing peace. Our services cover executive protection, site and asset protection, event security, secure transport, risk assessment, and 24/7 support.
               </p>
             </div>
             <div className="relative animate-on-scroll">
@@ -97,9 +93,9 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16 animate-on-scroll">
-              <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-3">Track Record</span>
-              <h2 className="text-4xl font-heading font-bold text-primary mb-4">Our Track Record</h2>
-              <p className="text-lg text-muted-foreground">Proven excellence in VIP security services across Nigeria</p>
+              <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-3">Our Services</span>
+              <h2 className="text-4xl font-heading font-bold text-primary mb-4">Protection & Risk Management</h2>
+              <p className="text-lg text-muted-foreground">Professional security solutions focused on your safety and peace of mind</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-5 stagger-children animate-on-scroll">
