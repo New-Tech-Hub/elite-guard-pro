@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Helmet } from 'react-helmet-async';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -18,6 +19,15 @@ const faqs = [
 
 const FAQ = () => (
   <div className="min-h-screen">
+    <Helmet>
+      <title>FAQ - Security Service Questions | 1145 Allied Protections Ltd</title>
+      <meta name="description" content="Answers about VIP escort, airport pickup, tourism security, and convoy services across Nigeria: coverage, booking steps, armed or unarmed officers, price estimates, and 24/7 support." />
+      <link rel="canonical" href="https://allied1145pro.lovable.app/faq" />
+      <meta property="og:title" content="FAQ - Security Service Questions | 1145 Allied Protections Ltd" />
+      <meta property="og:description" content="Answers about VIP escort, airport pickup, tourism security, and convoy services across Nigeria: coverage, booking steps, armed or unarmed officers, price estimates, and 24/7 support." />
+      <meta property="og:url" content="https://allied1145pro.lovable.app/faq" />
+      <meta property="og:type" content="website" />
+    </Helmet>
     <Navbar />
     <main>
       <section className="pt-32 pb-20 bg-primary text-primary-foreground border-b-4 border-accent on-dark">
