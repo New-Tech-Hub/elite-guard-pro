@@ -1,3 +1,4 @@
+import Seo from '@/components/Seo';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -25,6 +26,7 @@ const TourGuide = () => {
 
   return (
     <div className="min-h-screen" ref={scrollRef}>
+      <Seo title="Tourism Security & Tour Guide Protection | 1145 Allied Protections Ltd" description="Safe tourism experiences across Nigeria with trained security personnel and knowledgeable local guides." path="/tour-guide" />
       <Navbar />
 
       {/* Hero */}

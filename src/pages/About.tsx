@@ -1,3 +1,4 @@
+import Seo from '@/components/Seo';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -22,6 +23,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen" ref={scrollRef}>
+      <Seo title="About 1145 Allied Protections Ltd | Security & Risk Management in Nigeria" description="Trusted provider of professional security and risk management solutions, operating with discipline, discretion, and maximum efficiency." path="/about" />
       <Navbar />
 
       {/* Hero */}

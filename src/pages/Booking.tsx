@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Seo from '@/components/Seo';
 import { supabase } from '@/integrations/supabase/client';
 
 const db = supabase as unknown as { from: (table: string) => any };
@@ -67,6 +68,7 @@ const Booking = () => {
 
   return (
     <div className="min-h-screen" ref={scrollRef}>
+      <Seo title="Book Security Services | 1145 Allied Protections Ltd" description="Request VIP escorts, airport pickups, tourism security, and convoy protection across Nigeria with an instant price estimate." path="/booking" />
       <Navbar />
 
       <section className="pt-32 pb-24">

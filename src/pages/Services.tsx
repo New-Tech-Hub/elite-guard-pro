@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Seo from '@/components/Seo';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -68,6 +69,7 @@ const Services = () => {
 
   return (
     <div className="min-h-screen" ref={scrollRef}>
+      <Seo title="Our Services | VIP Escort, Airport Pickup, Event Security | 1145 Allied Protections Ltd" description="Executive protection, site and asset protection, event security, secure transport, and risk assessment across Nigeria." path="/services" />
       <Navbar />
 
       {/* Hero */}

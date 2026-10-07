@@ -1,3 +1,4 @@
+import Seo from '@/components/Seo';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -44,6 +45,7 @@ const Pricing = () => {
 
   return (
     <div className="min-h-screen" ref={scrollRef}>
+      <Seo title="Pricing | 1145 Allied Protections Ltd" description="Service pricing for airport pickup, VIP escort, tour guide security, and add-on officers, vehicles, and convoy support." path="/pricing" />
       <Navbar />
 
       {/* Hero */}

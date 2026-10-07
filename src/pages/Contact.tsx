@@ -1,3 +1,4 @@
+import Seo from '@/components/Seo';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -26,6 +27,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen" ref={scrollRef}>
+      <Seo title="Contact Us | 1145 Allied Protections Ltd" description="Reach our team 24/7 for protection and secure movement requests across Nigeria." path="/contact" />
       <Navbar />
 
       {/* Hero */}
