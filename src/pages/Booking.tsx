@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Seo from '@/components/Seo';
 import { supabase } from '@/integrations/supabase/client';
 
 const db = supabase as unknown as { from: (table: string) => any };
