@@ -30,6 +30,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen" ref={scrollRef}>
+      <Seo title="1145 Allied Protections Ltd - Premium Security Solutions in Nigeria" description="Nigeria's trusted partner for professional VIP protection, airport pickups, tour guide safety, and secure transport." path="/" />
       <Navbar />
       <HeroSlider />
 

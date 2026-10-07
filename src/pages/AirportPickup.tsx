@@ -45,6 +45,7 @@ const AirportPickup = () => {
 
   return (
     <div className="min-h-screen" ref={scrollRef}>
+      <Seo title="Airport Pickup Escort Services in Nigeria | 1145 Allied Protections Ltd" description="Secure airport meet-and-greet with professional escorts, flight tracking, luxury transport, and security escort to your destination." path="/airport-pickup" />
       <Navbar />
 
       {/* Hero */}
